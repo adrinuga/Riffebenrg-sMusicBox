@@ -11,7 +11,7 @@ public class PlayerLookingNav : MonoBehaviour
 
     private bool m_isMoving;
 
-    private rotableObject m_actualObject;
+    private InteractableObject m_actualObject;
 
 	// Use this for initialization
 	void Start ()
@@ -33,10 +33,10 @@ public class PlayerLookingNav : MonoBehaviour
         }
         else
         {
-            if ()
-            {
-                m_isMoving = false;
-            }
+            //if ()
+            //{
+            //    m_isMoving = false;
+            //}
         }
 
     }
