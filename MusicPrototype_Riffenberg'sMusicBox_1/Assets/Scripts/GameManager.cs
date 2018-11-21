@@ -35,9 +35,11 @@ public class GameManager : MonoBehaviour
         InteractableObject l_iObject = null;
         foreach(InteractableObject i in m_interactableObjects)
         {
-
-            //Como comparamos el transform con el interactuable si no hay monobehaviour, y como cojems el script hijito para devolverlo?
-            //Pos -> Padre hereda de monob?
+            if (i.ReturnObject() == _object)
+            {
+                l_iObject = i;
+            }
+            
         }
         return l_iObject;
     }

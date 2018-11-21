@@ -20,4 +20,8 @@ public class SafeOut : MonoBehaviour,InteractableObject {
     public void MouseOver()
     {
     }
+    public Transform ReturnObject()
+    {
+        return this.transform;
+    }
 }

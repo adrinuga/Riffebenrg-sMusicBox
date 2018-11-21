@@ -6,6 +6,7 @@ public interface InteractableObject
 {
     void OnClick();
     void MouseOver();
+    Transform ReturnObject();
 
 
 }
