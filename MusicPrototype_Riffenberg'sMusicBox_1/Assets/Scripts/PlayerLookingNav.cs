@@ -15,10 +15,11 @@ public class PlayerLookingNav : MonoBehaviour
     private Vector3 m_originalObjectPos, m_targetObjectPos;
     private Quaternion m_originalObjectRot;
 
-    [HideInInspector] public bool m_isMoving, m_BoxOn;
+    [HideInInspector] public bool m_isMoving = false, m_BoxOn = false;
 
     private Transform m_actualObject;
-    [SerializeField] Transform m_UIObject;
+    [SerializeField]
+    Transform m_UIObject;
 
    
 
@@ -34,25 +35,29 @@ public class PlayerLookingNav : MonoBehaviour
     {
         if (!m_isMoving)
         {
+            Debug.Log("inplayernav");
             //Vector3 l_mouseOnWorld = m_SceneCamera.ViewportToWorldPoint(Input.mousePosition);
 
             InteractableObject l_actualInteractable = null;
 
-            Ray l_mouseRay = m_SceneCamera.ViewportPointToRay(Input.mousePosition);
+            Ray l_mouseRay = m_SceneCamera.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit l_RaycastHit;
             if (Physics.Raycast(l_mouseRay, out l_RaycastHit, 200.0f, m_mouseMask.value))
             {
+                Debug.Log("Looking fr object");
                 if(l_RaycastHit.transform.tag == "Interactable")
                 {
+                    Debug.Log("InteractableFound");
                     l_actualInteractable = GameManager.m_instance.GetInteractableObject(l_RaycastHit.transform);
                     l_actualInteractable.MouseOver();
                 }
             }
 
-            //Comprobar objeto que estamos encima, highliht (?)
+            
             if (Input.GetMouseButtonDown(0) && l_actualInteractable != null)
             {
+                Debug.Log("InteractableClicked");
                 l_actualInteractable.OnClick();
 
             }
@@ -120,19 +125,29 @@ public class PlayerLookingNav : MonoBehaviour
         {
             m_actualObject = null;
             m_BoxOn = false;
-            m_UIObject.gameObject.SetActive(false);
+           
         }
         else
         {
             m_UIObject.gameObject.SetActive(true);
             m_BoxOn = true;
         }
+        m_isMoving = false;
     }
-    IEnumerator CloseTopuzzle(Transform _targetToClose)
+    //IEnumerator CloseTopuzzle(Transform _targetToClose)
+    //{
+    //    //while ()
+    //    //{
+    //    //    yield return null;
+    //    //}
+    //}
+
+    public void HideMouse()
     {
-        //while ()
-        //{
-        //    yield return null;
-        //}
+
+    }
+    public void ShowMouse()
+    {
+
     }
 }

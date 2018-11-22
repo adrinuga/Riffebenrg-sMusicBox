@@ -138,12 +138,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 42104855}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.482, y: 0, z: 0}
   m_LocalScale: {x: 0.053873472, y: 0.62120104, z: 0.6147329}
   m_Children: []
-  m_Father: {fileID: 362057962}
-  m_RootOrder: 1
+  m_Father: {fileID: 246580383}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &42104857
 MonoBehaviour:
@@ -298,6 +298,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
+--- !u!1 &246580382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 246580383}
+  m_Layer: 0
+  m_Name: OnBoxPuzzles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &246580383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246580382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 42104856}
+  - {fileID: 330273238}
+  - {fileID: 862165564}
+  - {fileID: 1155519853}
+  m_Father: {fileID: 362057962}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &276578239
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,8 +482,8 @@ Transform:
   m_LocalPosition: {x: -0.477, y: 0, z: 0}
   m_LocalScale: {x: 0.05387, y: 0.62119997, z: 0.61473}
   m_Children: []
-  m_Father: {fileID: 362057962}
-  m_RootOrder: 2
+  m_Father: {fileID: 246580383}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330273239
 MonoBehaviour:
@@ -588,11 +620,8 @@ Transform:
   m_LocalPosition: {x: 0, y: -1.5, z: 2.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 246580383}
   - {fileID: 2138868243}
-  - {fileID: 42104856}
-  - {fileID: 330273238}
-  - {fileID: 862165564}
-  - {fileID: 1155519853}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -751,11 +780,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a902fe117d947c42960e0ba45c54167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rotatePosTransform: {fileID: 0}
-  m_rotSpeed: 0
-  m_moveSpeed: 0
+  m_rotatePosTransform: {fileID: 610427545}
+  m_mouseMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_rotSpeed: 15
+  m_moveSpeed: 5
   m_isMoving: 0
   m_BoxOn: 0
+  m_UIObject: {fileID: 1692138706}
 --- !u!1 &572455118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,10 +1209,10 @@ Transform:
   m_GameObject: {fileID: 862165563}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -0.47399998}
-  m_LocalScale: {x: 0.05387006, y: 0.62119997, z: 0.6147305}
+  m_LocalScale: {x: 0.05387009, y: 0.62119997, z: 0.6147307}
   m_Children: []
-  m_Father: {fileID: 362057962}
-  m_RootOrder: 3
+  m_Father: {fileID: 246580383}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &862165565
 MonoBehaviour:
@@ -1443,11 +1476,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1155519852}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.486}
-  m_LocalScale: {x: 0.05387003, y: 0.62119997, z: 0.61473024}
+  m_LocalPosition: {x: 0, y: 0, z: 0.48600006}
+  m_LocalScale: {x: 0.05387006, y: 0.62119997, z: 0.6147305}
   m_Children: []
-  m_Father: {fileID: 362057962}
-  m_RootOrder: 4
+  m_Father: {fileID: 246580383}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1155519854
 BoxCollider:
@@ -1720,7 +1753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1692138706
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1821,6 +1854,28 @@ MonoBehaviour:
       - m_Target: {fileID: 487720248}
         m_MethodName: LeaveObjectDown
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2138868245}
+        m_MethodName: SetBoxOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1692138705}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2352,7 +2407,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 362057962}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2138868244
 BoxCollider:
@@ -2377,6 +2432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01a814b8149a62543a1be8a9897e41ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_puzzlesInside: {fileID: 246580383}
 --- !u!1 &2144094077
 GameObject:
   m_ObjectHideFlags: 0

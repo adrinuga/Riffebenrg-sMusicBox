@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
             if (i.ReturnObject() == _object)
             {
                 l_iObject = i;
+               
             }
             
         }
