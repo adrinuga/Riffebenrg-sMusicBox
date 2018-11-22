@@ -11,14 +11,23 @@ public class SafeOut : MonoBehaviour,InteractableObject {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
     public void OnClick()
     {
+        if (!GameManager.m_instance.m_playerNav.m_BoxOn)
+        {
+            GameManager.m_instance.m_playerNav.MoveBoxClose();
+        }
     }
     public void MouseOver()
     {
+        if (!GameManager.m_instance.m_playerNav.m_BoxOn)
+        {
+        }
+
     }
     public Transform ReturnObject()
     {

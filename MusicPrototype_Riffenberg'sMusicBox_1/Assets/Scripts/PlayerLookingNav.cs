@@ -9,7 +9,9 @@ public class PlayerLookingNav : MonoBehaviour
 
     [SerializeField] private float m_rotSpeed, m_moveSpeed;
 
-    private bool m_isMoving;
+    [HideInInspector] public bool m_isMoving, m_BoxOn;
+
+    
 
     private InteractableObject m_actualObject;
 
@@ -47,5 +49,13 @@ public class PlayerLookingNav : MonoBehaviour
     public void RotateSide(float m_degreesToRotate)
     {
         m_isMoving = true;
+    }
+    public void BringObjectClose(Transform _IntRotobject)
+    {
+
+    }
+    public void LeaveObjectDown()
+    {
+
     }
 }
