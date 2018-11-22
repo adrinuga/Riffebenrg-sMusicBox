@@ -71,25 +71,25 @@ public class PlayerLookingNav : MonoBehaviour
         StartCoroutine(RotateObject(_degreesToRotate));
 
     }
-    public void BringObjectClose(Transform _IntRotobject)
+    public void BringObjectClose(Transform _IntRotobject, float _time)
     {
         m_actualObject = _IntRotobject;
-        m_isMoving = true;
         m_originalObjectPos = m_actualObject.position;
         m_originalObjectRot = m_actualObject.rotation;
 
-        StartCoroutine(MoveObject( m_rotatePosTransform.position,m_rotatePosTransform.rotation,false));
+        StartCoroutine(WaitTimeToNotMoving(_time,true));
 
     }
-    public void LeaveObjectDown()
+    public void LeaveObjectDown(float _time)
     {
         m_isMoving = true;
 
-
-        StartCoroutine(MoveObject(m_originalObjectPos, m_originalObjectRot, true));
+        StartCoroutine(WaitTimeToNotMoving(_time, false));
+        
     }
     IEnumerator RotateObject(float _angles)
     {
+        HideMouse();
         m_UIObject.gameObject.SetActive(false);
 
         float l_originalRot = m_actualObject.transform.rotation.y;
@@ -103,14 +103,37 @@ public class PlayerLookingNav : MonoBehaviour
             m_actualObject.RotateAround(m_actualObject.position, Vector3.up, Mathf.Sign(_angles) * m_rotSpeed * Time.deltaTime);
             yield return null;
         }
-        m_isMoving = false;
-        m_UIObject.gameObject.SetActive(true);
+       
+            m_isMoving = false;
+            m_UIObject.gameObject.SetActive(true);
         
+        ShowMouse();
     }
+    IEnumerator WaitTimeToNotMoving(float _timeToWait, bool m_objectBring)
+    {
+        HideMouse();
+        m_isMoving = true;
+        yield return new WaitForSeconds(_timeToWait);
+        m_isMoving = false;
+
+        if (m_objectBring)
+        {
+            m_BoxOn = true;
+            m_UIObject.gameObject.SetActive(true);
+        }
+        else
+        {
+            m_actualObject = null;
+            m_BoxOn = false;
+        }
+        ShowMouse();
+    }
+
     IEnumerator MoveObject(Vector3 _targetPos,Quaternion _targetRot, bool _detachEnd)
     {
         float l_originalRot = m_actualObject.transform.rotation.y;
         float l_rotCounting = 0f;
+        
 
         while ((_targetPos - m_actualObject.position).magnitude <= 0)
         {
@@ -144,10 +167,12 @@ public class PlayerLookingNav : MonoBehaviour
 
     public void HideMouse()
     {
-
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     public void ShowMouse()
     {
-
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

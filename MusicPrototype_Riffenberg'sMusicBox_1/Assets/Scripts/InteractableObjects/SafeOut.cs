@@ -34,12 +34,13 @@ public class SafeOut : MonoBehaviour,InteractableObject {
     {
         if (!GameManager.m_instance.m_playerNav.m_BoxOn)
         {
-            GameManager.m_instance.m_playerNav.BringObjectClose(transform.root);
+            GameManager.m_instance.m_playerNav.BringObjectClose(transform.root, m_bringCloseAnimation.length);
             m_puzzlesInside.gameObject.SetActive(true);
             transform.gameObject.SetActive(false);
             m_objectOutline.enabled = false;
             m_objectAnimation.clip = m_bringCloseAnimation;
             m_objectAnimation.Play();
+            
         }
     }
     public void MouseOver()
@@ -56,6 +57,7 @@ public class SafeOut : MonoBehaviour,InteractableObject {
     }
     public void SetBoxOut()
     {
+        GameManager.m_instance.m_playerNav.LeaveObjectDown(m_putDownAnimation.length);
         m_puzzlesInside.gameObject.SetActive(false);
         transform.gameObject.SetActive(true);
         m_objectAnimation.clip = m_putDownAnimation;
