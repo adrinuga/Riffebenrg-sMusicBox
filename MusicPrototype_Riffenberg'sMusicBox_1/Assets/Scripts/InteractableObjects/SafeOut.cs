@@ -8,6 +8,14 @@ public class SafeOut : MonoBehaviour,InteractableObject {
     [SerializeField] Transform m_puzzlesInside;
 
     [SerializeField] private Outline m_objectOutline;
+    [SerializeField] private Animation m_objectAnimation;
+    [SerializeField]
+    private AnimationClip
+        m_bringCloseAnimation,
+        m_putDownAnimation
+        ;
+
+
 
  
 
@@ -30,6 +38,8 @@ public class SafeOut : MonoBehaviour,InteractableObject {
             m_puzzlesInside.gameObject.SetActive(true);
             transform.gameObject.SetActive(false);
             m_objectOutline.enabled = false;
+            m_objectAnimation.clip = m_bringCloseAnimation;
+            m_objectAnimation.Play();
         }
     }
     public void MouseOver()
@@ -48,5 +58,7 @@ public class SafeOut : MonoBehaviour,InteractableObject {
     {
         m_puzzlesInside.gameObject.SetActive(false);
         transform.gameObject.SetActive(true);
+        m_objectAnimation.clip = m_putDownAnimation;
+        m_objectAnimation.Play();
     }
 }
