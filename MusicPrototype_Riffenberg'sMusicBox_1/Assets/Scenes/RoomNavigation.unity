@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 42104859}
   - component: {fileID: 42104858}
   - component: {fileID: 42104857}
+  - component: {fileID: 42104861}
   m_Layer: 0
   m_Name: Puzzle1
   m_TagString: Interactable
@@ -139,11 +140,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 42104855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.482, y: 0, z: 0}
+  m_LocalPosition: {x: 0.474, y: 0, z: 0}
   m_LocalScale: {x: 0.053873472, y: 0.62120104, z: 0.6147329}
   m_Children: []
   m_Father: {fileID: 246580383}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &42104857
 MonoBehaviour:
@@ -156,7 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d47432ba7075f4e99cd479f4a1f42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sceneToChange: 0
+  m_sceneToChange: 1
+  m_objectOutline: {fileID: 42104861}
+  m_puzzleAnim: {fileID: 0}
+  m_changeSceneAnim: {fileID: 0}
 --- !u!65 &42104858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -184,7 +188,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1c00c515626b7bd4d811c1bcbf734c54, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -211,6 +215,51 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 42104855}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &42104861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 42104855}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!1 &132459907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132459908}
+  m_Layer: 0
+  m_Name: Forward
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &132459908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 132459907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.575}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 362057962}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &199402143
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &246580383
 Transform:
   m_ObjectHideFlags: 0
@@ -323,10 +372,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 862165564}
   - {fileID: 42104856}
   - {fileID: 330273238}
-  - {fileID: 862165564}
   - {fileID: 1155519853}
+  - {fileID: 1774950911}
   m_Father: {fileID: 362057962}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -465,6 +515,7 @@ GameObject:
   - component: {fileID: 330273241}
   - component: {fileID: 330273240}
   - component: {fileID: 330273239}
+  - component: {fileID: 330273243}
   m_Layer: 0
   m_Name: Puzzle2
   m_TagString: Interactable
@@ -479,11 +530,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 330273237}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.477, y: 0, z: 0}
+  m_LocalPosition: {x: -0.475, y: 0, z: 0}
   m_LocalScale: {x: 0.05387, y: 0.62119997, z: 0.61473}
   m_Children: []
   m_Father: {fileID: 246580383}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330273239
 MonoBehaviour:
@@ -496,7 +547,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d47432ba7075f4e99cd479f4a1f42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sceneToChange: 0
+  m_sceneToChange: 2
+  m_objectOutline: {fileID: 330273243}
+  m_puzzleAnim: {fileID: 0}
+  m_changeSceneAnim: {fileID: 0}
 --- !u!65 &330273240
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -524,7 +578,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1c00c515626b7bd4d811c1bcbf734c54, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -551,6 +605,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 330273237}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &330273243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 330273237}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &362057958
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +633,7 @@ GameObject:
   - component: {fileID: 362057961}
   - component: {fileID: 362057960}
   - component: {fileID: 362057959}
+  - component: {fileID: 362057963}
   m_Layer: 0
   m_Name: Safe
   m_TagString: Untagged
@@ -580,8 +652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 0.96996224, g: 1, b: 0, a: 1}
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 0, a: 1}
   outlineWidth: 10
   precomputeOutline: 0
   bakeKeys: []
@@ -640,9 +712,26 @@ Transform:
   m_Children:
   - {fileID: 246580383}
   - {fileID: 2138868243}
+  - {fileID: 132459908}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &362057963
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 362057958}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 3731223af5b13e64ebc99e97b245d620, type: 2}
+  - {fileID: 7400000, guid: 1b16a7e20d34d4241860228d1b3ad25e, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &486445405
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,7 +891,7 @@ MonoBehaviour:
   m_mouseMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_rotSpeed: 15
+  m_rotSpeed: 120
   m_moveSpeed: 5
   m_isMoving: 0
   m_BoxOn: 0
@@ -1212,6 +1301,7 @@ GameObject:
   - component: {fileID: 862165567}
   - component: {fileID: 862165566}
   - component: {fileID: 862165565}
+  - component: {fileID: 862165569}
   m_Layer: 0
   m_Name: FinalPuzzle
   m_TagString: Interactable
@@ -1230,7 +1320,7 @@ Transform:
   m_LocalScale: {x: 0.05387009, y: 0.62119997, z: 0.6147307}
   m_Children: []
   m_Father: {fileID: 246580383}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &862165565
 MonoBehaviour:
@@ -1297,6 +1387,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 862165563}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &862165569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 862165563}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0.9963192, g: 1, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &938748714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,6 +1587,7 @@ GameObject:
   - component: {fileID: 1155519855}
   - component: {fileID: 1155519854}
   - component: {fileID: 1155519857}
+  - component: {fileID: 1155519858}
   m_Layer: 0
   m_Name: Puzzle3
   m_TagString: Interactable
@@ -1494,7 +1602,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1155519852}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.48600006}
+  m_LocalPosition: {x: 0, y: 0, z: 0.475}
   m_LocalScale: {x: 0.05387006, y: 0.62119997, z: 0.6147305}
   m_Children: []
   m_Father: {fileID: 246580383}
@@ -1527,7 +1635,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1c00c515626b7bd4d811c1bcbf734c54, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1565,7 +1673,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d47432ba7075f4e99cd479f4a1f42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sceneToChange: 0
+  m_sceneToChange: 3
+  m_objectOutline: {fileID: 1155519858}
+  m_puzzleAnim: {fileID: 0}
+  m_changeSceneAnim: {fileID: 0}
+--- !u!114 &1155519858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155519852}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1198312489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,17 +2009,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 487720248}
-        m_MethodName: LeaveObjectDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2138868245}
         m_MethodName: SetBoxOut
         m_Mode: 1
@@ -1950,6 +2067,47 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1715163365}
   m_CullTransparentMesh: 0
+--- !u!1 &1774950910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774950911}
+  - component: {fileID: 1774950912}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1774950911
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774950910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 246580383}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1774950912
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774950910}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1819206412
 GameObject:
   m_ObjectHideFlags: 0
@@ -2464,6 +2622,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_puzzlesInside: {fileID: 246580383}
   m_objectOutline: {fileID: 362057959}
+  m_objectAnimation: {fileID: 362057963}
+  m_bringCloseAnimation: {fileID: 7400000, guid: 3731223af5b13e64ebc99e97b245d620,
+    type: 2}
+  m_putDownAnimation: {fileID: 7400000, guid: 1b16a7e20d34d4241860228d1b3ad25e, type: 2}
 --- !u!1 &2144094077
 GameObject:
   m_ObjectHideFlags: 0

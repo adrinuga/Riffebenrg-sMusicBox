@@ -7,6 +7,10 @@ public class ChangeToPuzzle : MonoBehaviour, InteractableObject {
 
     [SerializeField] private int m_sceneToChange;
     [SerializeField] private Outline m_objectOutline;
+    [SerializeField] Animation m_puzzleAnim;
+    [SerializeField] AnimationClip m_changeSceneAnim;
+
+    AsyncOperation m_async;
 
     // Use this for initialization
     void Start()
@@ -23,6 +27,10 @@ public class ChangeToPuzzle : MonoBehaviour, InteractableObject {
     {
         if (GameManager.m_instance.m_playerNav.m_BoxOn)
         {
+            Debug.Log("changeScene");
+
+
+            StartCoroutine(Load());
 
         }
     }
@@ -30,14 +38,38 @@ public class ChangeToPuzzle : MonoBehaviour, InteractableObject {
     {
         if (GameManager.m_instance.m_playerNav.m_BoxOn)
         {
-            if (!GameManager.m_instance.m_playerNav.m_BoxOn)
-            {
-                m_objectOutline.enabled = true;
-            }
+
+            m_objectOutline.enabled = true;
+            Debug.Log("outline");
+
         }
     }
     public Transform ReturnObject()
     {
         return this.transform;
+    }
+    IEnumerator Load()
+    {
+        Debug.LogWarning("ASYNC LOAD STARTED - " +
+           "DO NOT EXIT PLAY MODE UNTIL SCENE LOADS... UNITY WILL CRASH");
+        m_async = SceneManager.LoadSceneAsync(m_sceneToChange);
+        m_async.allowSceneActivation = false;
+
+        //m_puzzleAnim.clip = m_changeSceneAnim;
+        ////m_puzzleAnim.Play();
+        ////while (m_puzzleAnim.isPlaying)
+        ////{
+        yield return null;
+
+        //}
+        ActivateScene();
+
+        
+
+    }
+    public void ActivateScene()
+    {
+        Debug.Log("goChange");
+        m_async.allowSceneActivation = true;
     }
 }

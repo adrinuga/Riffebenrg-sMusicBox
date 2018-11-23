@@ -21,6 +21,7 @@ public class PlayerLookingNav : MonoBehaviour
     [SerializeField]
     Transform m_UIObject;
 
+   // private Vector3 m_mousePosSave;
    
 
 	// Use this for initialization
@@ -92,7 +93,7 @@ public class PlayerLookingNav : MonoBehaviour
         HideMouse();
         m_UIObject.gameObject.SetActive(false);
 
-        float l_originalRot = m_actualObject.transform.rotation.y;
+        float l_originalRot = m_actualObject.transform.rotation.eulerAngles.y;
         float l_rotCounting = 0f;
 
         Quaternion l_finalRot = Quaternion.Euler(0, m_actualObject.rotation.y + _angles, 0);
@@ -103,9 +104,10 @@ public class PlayerLookingNav : MonoBehaviour
             m_actualObject.RotateAround(m_actualObject.position, Vector3.up, Mathf.Sign(_angles) * m_rotSpeed * Time.deltaTime);
             yield return null;
         }
-       
-            m_isMoving = false;
-            m_UIObject.gameObject.SetActive(true);
+        m_actualObject.eulerAngles = new Vector3(0, l_originalRot + _angles, 0);
+
+        m_isMoving = false;
+        m_UIObject.gameObject.SetActive(true);
         
         ShowMouse();
     }
@@ -167,12 +169,14 @@ public class PlayerLookingNav : MonoBehaviour
 
     public void HideMouse()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+       // m_mousePosSave = Input.mousePosition;
+      //  Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
     public void ShowMouse()
     {
-        Cursor.lockState = CursorLockMode.None;
+        //Input.mousePosition = m_mousePosSave;
+       // Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 }
