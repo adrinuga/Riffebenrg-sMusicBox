@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class ExitInteractable : MonoBehaviour, InteractableObject {
+public class EventObject : MonoBehaviour, InteractableObject {
 
-    [SerializeField] Transform m_exitCanvas;
+    [SerializeField] private UnityEvent m_event;
 
     [SerializeField] private Outline m_objectOutline;
     
@@ -30,8 +31,8 @@ public class ExitInteractable : MonoBehaviour, InteractableObject {
     {
         if (!GameManager.m_instance.m_playerNav.m_BoxOn)
         {
-            
-            m_exitCanvas.gameObject.SetActive(true);
+
+            m_event.Invoke();
             
             m_objectOutline.enabled = false;
             

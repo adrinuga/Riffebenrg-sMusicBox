@@ -38,8 +38,8 @@ public class SafeOut : MonoBehaviour,InteractableObject {
             m_puzzlesInside.gameObject.SetActive(true);
             transform.gameObject.SetActive(false);
             m_objectOutline.enabled = false;
-            m_objectAnimation.clip = m_bringCloseAnimation;
-            m_objectAnimation.Play();
+           // m_objectAnimation.clip = m_bringCloseAnimation;
+            m_objectAnimation.CrossFade(m_bringCloseAnimation.name);
             
         }
     }
@@ -60,7 +60,7 @@ public class SafeOut : MonoBehaviour,InteractableObject {
         GameManager.m_instance.m_playerNav.LeaveObjectDown(m_putDownAnimation.length);
         m_puzzlesInside.gameObject.SetActive(false);
         transform.gameObject.SetActive(true);
-        m_objectAnimation.clip = m_putDownAnimation;
-        m_objectAnimation.Play();
+       // m_objectAnimation.clip = m_putDownAnimation;
+        m_objectAnimation.CrossFade(m_putDownAnimation.name);
     }
 }

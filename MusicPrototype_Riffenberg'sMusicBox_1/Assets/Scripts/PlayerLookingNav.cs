@@ -15,7 +15,11 @@ public class PlayerLookingNav : MonoBehaviour
     private Vector3 m_originalObjectPos, m_targetObjectPos;
     private Quaternion m_originalObjectRot;
 
-    [HideInInspector] public bool m_isMoving = false, m_BoxOn = false;
+    [HideInInspector]
+    public bool
+        m_isMoving = false,
+        m_BoxOn = false;
+        
 
     private Transform m_actualObject;
     [SerializeField]
