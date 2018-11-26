@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
+
+
 
 public class PuzzleManager : MonoBehaviour {
 
     public static PuzzleManager m_instance = null;
+
+
 
 
     private enum TypeOfPuzzles {Rythm, MovingWalls, SimonSays }
@@ -15,7 +21,13 @@ public class PuzzleManager : MonoBehaviour {
 
     //MovingWallsPuzzle
     [SerializeField] private Transform m_LasPosition;
+    [SerializeField] private AudioMixer m_AudioMixer;
+
+    [SerializeField] private Slider[] m_Sliders;
+    [SerializeField] private int m_NumberOfWallPositions;
+
     private Node m_LastNode;
+
 
     //RythmPuzzle
 
@@ -43,7 +55,11 @@ public class PuzzleManager : MonoBehaviour {
                 break;
 
             case TypeOfPuzzles.MovingWalls:
-                m_Grid.GetNodeContainingPosition(m_LastNode.worldPosition);
+
+                //Save the final node
+                m_LastNode = m_Grid.GetNodeContainingPosition(m_LasPosition.position);
+
+
                     break;
 
             case TypeOfPuzzles.SimonSays:
@@ -63,10 +79,18 @@ public class PuzzleManager : MonoBehaviour {
 
             case TypeOfPuzzles.MovingWalls:
 
-
-                if(m_Ball.m_CurrentNode == m_LastNode)
+                //Update the music effects
+                for (int i = 0; i < m_Sliders.Length; i++)
                 {
-                    print("PUZZLE FINISHED");
+                    m_AudioMixer.SetFloat("P" + i, m_Sliders[i].value);
+
+                }
+
+
+
+                if (m_Ball.m_CurrentNode == m_LastNode)
+                {
+
                     Debug.Break();
                 }
                 break;
