@@ -22,11 +22,11 @@ public class RingScript : MonoBehaviour
 	}
     public void EnableRing() 
     {
-
+        m_ringOutline.enabled = true;
     }
     public void DisableRing()
     {
-
+        m_ringOutline.enabled = false;
     }
     public void RotateRing(int _sign)
     {
@@ -34,17 +34,34 @@ public class RingScript : MonoBehaviour
 
         if (_sign > 0)
         {
+            if(m_ringAudioIndex >= m_ringAudioSources.Count-1)
+            {
+                m_ringAudioIndex = 0;
+            }
+            else
+            {
+                m_ringAudioIndex++;
+            }
+
 
         }
         else if (_sign < 0)
         {
+            if (m_ringAudioIndex <= 0)
+            {
+                m_ringAudioIndex = m_ringAudioSources.Count-1 ;
+            }
+            else
+            {
+                m_ringAudioIndex++;
+            }
 
         }
-        StartCoroutine(DoRotation(l_angles));
+        StartCoroutine(DoRotation(l_angles,_sign));
 
 
     }
-    IEnumerator DoRotation(float _angles)
+    IEnumerator DoRotation(float _angles, int _direction)
     {
         yield return null;
     }
