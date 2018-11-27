@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EventObject : MonoBehaviour, InteractableObject {
+public class EventObject : InteractableObject {
 
     [SerializeField] private UnityEvent m_event;
 
@@ -27,7 +27,7 @@ public class EventObject : MonoBehaviour, InteractableObject {
     {
         m_objectOutline.enabled = false;
     }
-    public void OnClick()
+    public override void OnClick()
     {
         if (!GameManager.m_instance.m_playerNav.m_BoxOn)
         {
@@ -40,7 +40,7 @@ public class EventObject : MonoBehaviour, InteractableObject {
 
         }
     }
-    public void MouseOver()
+    public override void MouseOver()
     {
         if (!GameManager.m_instance.m_playerNav.m_BoxOn)
         {
@@ -48,7 +48,7 @@ public class EventObject : MonoBehaviour, InteractableObject {
         }
 
     }
-    public Transform ReturnObject()
+    public override Transform ReturnObject()
     {
         return this.transform;
     }

@@ -32,7 +32,6 @@ public class MovingWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(m_CurrentPositionIndex + " , " + m_Slider.value);
         if((int)m_Slider.value != m_CurrentPositionIndex)
         {
             MoveWall((int)m_Slider.value);

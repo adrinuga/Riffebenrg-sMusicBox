@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SafeOut : MonoBehaviour,InteractableObject {
+public class SafeOut : InteractableObject {
 
     [SerializeField] Transform m_puzzlesInside;
 
@@ -12,8 +12,7 @@ public class SafeOut : MonoBehaviour,InteractableObject {
     [SerializeField]
     private AnimationClip
         m_bringCloseAnimation,
-        m_putDownAnimation
-        ;
+        m_putDownAnimation;
 
 
 
@@ -30,7 +29,7 @@ public class SafeOut : MonoBehaviour,InteractableObject {
     {
         m_objectOutline.enabled = false;
     }
-    public void OnClick()
+    public override void OnClick()
     {
         if (!GameManager.m_instance.m_playerNav.m_BoxOn)
         {
@@ -43,7 +42,7 @@ public class SafeOut : MonoBehaviour,InteractableObject {
             
         }
     }
-    public void MouseOver()
+    public override void MouseOver()
     {
         if (!GameManager.m_instance.m_playerNav.m_BoxOn)
         {
@@ -51,7 +50,7 @@ public class SafeOut : MonoBehaviour,InteractableObject {
         }
 
     }
-    public Transform ReturnObject()
+    public override Transform ReturnObject()
     {
         return this.transform;
     }

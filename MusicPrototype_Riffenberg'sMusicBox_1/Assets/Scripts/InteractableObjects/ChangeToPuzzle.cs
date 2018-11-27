@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeToPuzzle : MonoBehaviour, InteractableObject {
+public class ChangeToPuzzle : InteractableObject {
 
     [SerializeField] private int m_sceneToChange;
     [SerializeField] private Outline m_objectOutline;
@@ -23,7 +23,7 @@ public class ChangeToPuzzle : MonoBehaviour, InteractableObject {
     {
         m_objectOutline.enabled = false;
     }
-    public void OnClick()
+    public override void OnClick()
     {
         if (GameManager.m_instance.m_playerNav.m_BoxOn)
         {
@@ -34,7 +34,7 @@ public class ChangeToPuzzle : MonoBehaviour, InteractableObject {
 
         }
     }
-    public void MouseOver()
+    public override void MouseOver()
     {
         if (GameManager.m_instance.m_playerNav.m_BoxOn)
         {
@@ -44,7 +44,7 @@ public class ChangeToPuzzle : MonoBehaviour, InteractableObject {
 
         }
     }
-    public Transform ReturnObject()
+    public override Transform ReturnObject()
     {
         return this.transform;
     }

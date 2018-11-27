@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public interface InteractableObject
+public abstract class InteractableObject: MonoBehaviour
 {
-    void OnClick();
-    void MouseOver();
-    Transform ReturnObject();
+    abstract public void OnClick();
+    abstract public void MouseOver();
+    abstract public Transform ReturnObject();
 
 
     

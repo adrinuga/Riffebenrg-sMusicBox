@@ -137,6 +137,7 @@ public class Node
 	public int gridPositionX, gridPositionY, nodeSize;
 	public Vector3 worldPosition;
 	public bool isTransitable = true;
+    public bool hasBeenVisited = false;
 
     public Node() { }
 
