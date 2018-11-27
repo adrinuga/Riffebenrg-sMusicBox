@@ -5,8 +5,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager m_instance = null;
+
     public List<InteractableObject> m_interactableObjects;
     public PlayerLookingNav m_playerNav;
+    public bool 
+        m_melodyPuzzle,
+        m_rythmPuzzle,
+        m_harmonyPuzzle
+        ;
+    public bool m_finalAvaliable;
 
 	// Use this for initialization
 	void Awake ()
