@@ -138,21 +138,19 @@ public class BallMovement : MonoBehaviour {
         if (m_NextPosition != m_CurrentNode.worldPosition)
         {
             m_LastVisitedNode = m_CurrentNode;
-            //m_LastVisitedNode.hasBeenVisited = true;
             m_GameGrid.GetNodeContainingPosition(m_LastVisitedNode.worldPosition).hasBeenVisited = true;
         }
     }
     private void CheckPreviousNode()
     {
-        print(m_GameGrid.GetNodeContainingPosition(m_NextPosition).hasBeenVisited);
         if (m_LastVisitedNode != null)
         {
-            //if (m_GameGrid.GetNodeContainingPosition(m_NextPosition).hasBeenVisited)
-            //    ResetPosition();
-            if (m_NextPosition == m_LastVisitedNode.worldPosition)
+            if (m_GameGrid.GetNodeContainingPosition(m_NextPosition).hasBeenVisited)
             {
                 ResetPosition();
+                m_GameGrid.ResetVisitedNodes();
             }
+
         }
     }
     private void ChangeCanMoveState()

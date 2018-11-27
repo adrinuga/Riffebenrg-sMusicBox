@@ -129,7 +129,16 @@ public class GridScript : MonoBehaviour {
         
 		return Neighbours;
 	}
-
+    public void ResetVisitedNodes()
+    {
+        for (int i = 0; i < m_Grid.GetLength(0); i++)
+        {
+            for (int o = 0; o < m_Grid.GetLength(1); o++)
+            {
+                m_Grid[i, o].hasBeenVisited = false;
+            }
+        }
+    }
 }
 public class Node
 {
