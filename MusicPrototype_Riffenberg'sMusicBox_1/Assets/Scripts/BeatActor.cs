@@ -148,8 +148,6 @@ public class BeatActor : MonoBehaviour
                         if (actOnBar)
                             actOnBar = false;
                     }
-
-
                 }
             }
 
@@ -183,11 +181,8 @@ public class BeatActor : MonoBehaviour
         }
         else if (beatType == BeatManager.BeatType.FourthBeat && (BeatManager.currentBeat == BeatManager.BeatType.FourthBeat || BeatManager.currentBeat == BeatManager.BeatType.DownBeat))
         {
-            //Debug.Log("current Beat" + BeatManager.fourthNotesCounter);
-           // Debug.Log("my beat: " + i);
             if (BeatManager.fourthNotesCounter == i)
             {
-                //Debug.Log("let's goo");
                 return true;
             }
         }

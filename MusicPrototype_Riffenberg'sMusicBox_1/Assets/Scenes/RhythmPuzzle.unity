@@ -247,7 +247,6 @@ GameObject:
   - component: {fileID: 216551812}
   - component: {fileID: 216551811}
   - component: {fileID: 216551810}
-  - component: {fileID: 216551815}
   - component: {fileID: 216551814}
   m_Layer: 0
   m_Name: Player
@@ -331,31 +330,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 216551809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b88eb6c183445347b593dc9dd611927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NextPosition: {x: 0, y: 0, z: 0}
-  m_SpawnPosition: {x: 0, y: 0, z: 0}
-  m_GameGrid: {fileID: 2048782221}
-  m_Speed: 4
---- !u!114 &216551815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 216551809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 580ba7a52d198b142b1e3e868308de74, type: 3}
+  m_Script: {fileID: 11500000, guid: 998d82010dda3cd4da55d19ec79cbddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mySource: {fileID: 0}
-  beatType: 1
-  beatList: 
+  beatType: 2
+  beatList: 01000000020000000300000004000000
   actSound: {fileID: 0}
   waitBarInterval: 1
-  startImmediately: 0
+  startImmediately: 1
   waitBarCounter: 0
+  m_NextPosition: {x: 0, y: 0, z: 0}
+  m_SpawnPosition: {x: 0, y: 0, z: 0}
+  m_InitialDirection: {x: 1, y: 0}
+  m_ErrorRange: 0.2
+  m_GameGrid: {fileID: 2048782221}
+  m_Speed: 4
 --- !u!1 &401266872
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,10 +655,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3d85c371002b942abc0ae98ace598a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PuzzleType: 1
-  m_Ball: {fileID: 216551814}
+  m_PuzzleType: 0
+  m_Ball: {fileID: 0}
   m_Grid: {fileID: 2048782221}
-  m_LasPosition: {fileID: 0}
+  m_LastPosition: {fileID: 0}
   m_AudioMixer: {fileID: 0}
   m_Sliders: []
   m_NumberOfWallPositions: 0

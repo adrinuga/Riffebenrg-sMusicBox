@@ -13,14 +13,14 @@ public class PuzzleManager : MonoBehaviour {
 
 
 
-    private enum TypeOfPuzzles {Rythm, MovingWalls, SimonSays }
+    private enum TypeOfPuzzles {Rhythm, MovingWalls, SimonSays }
     [SerializeField] TypeOfPuzzles m_PuzzleType;
 
     [SerializeField] private BallMovement m_Ball;
     [SerializeField] private GridScript m_Grid;
 
     //MovingWallsPuzzle
-    [SerializeField] private Transform m_LasPosition;
+    [SerializeField] private Transform m_LastPosition;
     [SerializeField] private AudioMixer m_AudioMixer;
 
     [SerializeField] private Slider[] m_Sliders;
@@ -50,14 +50,14 @@ public class PuzzleManager : MonoBehaviour {
     void Start () {
         switch (m_PuzzleType)
         {
-            case TypeOfPuzzles.Rythm:
+            case TypeOfPuzzles.Rhythm:
 
                 break;
 
             case TypeOfPuzzles.MovingWalls:
 
                 //Save the final node
-                m_LastNode = m_Grid.GetNodeContainingPosition(m_LasPosition.position);
+                m_LastNode = m_Grid.GetNodeContainingPosition(m_LastPosition.position);
 
 
                     break;
@@ -73,7 +73,7 @@ public class PuzzleManager : MonoBehaviour {
 	void Update () {
 		switch(m_PuzzleType)
         {
-            case TypeOfPuzzles.Rythm:
+            case TypeOfPuzzles.Rhythm:
 
                 break;
 
