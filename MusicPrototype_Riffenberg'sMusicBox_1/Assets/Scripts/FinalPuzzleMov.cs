@@ -10,10 +10,17 @@ public class FinalPuzzleMov : MonoBehaviour
     private RingScript m_actualRing;
 
 	// Use this for initialization
-	void Start ()
+
+    void OnEnable()
     {
-		
-	}
+        m_actualRing = m_ringList[0];
+        m_actualRing.EnableRing();
+    }
+    void OnDisable()
+    {
+        Debug.Log("disableRing");
+    }
+
 	
 	// Update is called once per frame
 	void Update ()
