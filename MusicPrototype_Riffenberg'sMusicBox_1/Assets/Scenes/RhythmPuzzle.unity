@@ -337,7 +337,7 @@ MonoBehaviour:
   beatType: 2
   beatList: 01000000020000000300000004000000
   actSound: {fileID: 0}
-  waitBarInterval: 1
+  waitBarInterval: 0
   startImmediately: 1
   waitBarCounter: 0
   m_NextPosition: {x: 0, y: 0, z: 0}
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_InitialDirection: {x: 1, y: 0}
   m_ErrorRange: 0.2
   m_GameGrid: {fileID: 2048782221}
-  m_Speed: 4
+  m_Speed: 2
 --- !u!1 &401266872
 GameObject:
   m_ObjectHideFlags: 0
