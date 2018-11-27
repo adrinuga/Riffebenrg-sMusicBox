@@ -17,19 +17,22 @@ public class MovingWall : MonoBehaviour
     private float speed = 10f;
     private bool isMoving = false;
 
-    // Use this for initializations
     void Start()
     {
+
+        m_Grid = GameObject.FindGameObjectWithTag("Grid").GetComponent<GridScript>();
+        m_PuzzleManager = GameObject.FindGameObjectWithTag("PuzzleManager").GetComponent<PuzzleManager>();
+
         m_Nodes = new Node[m_Positions.Length];
         for (int i = 0; i < m_Positions.Length; i++)
         {
             m_Nodes[i] = m_Grid.GetNodeContainingPosition(m_Positions[i].position);
-            //Destroy(m_Positions[i].gameObject);
         }
         m_CurrentPositionIndex = (int)m_Slider.value;
+
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
         if((int)m_Slider.value != m_CurrentPositionIndex)
