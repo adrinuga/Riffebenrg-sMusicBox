@@ -29,15 +29,20 @@ public class GridScript : MonoBehaviour {
 
 
 				bool l_IsTransitable = true;
+                bool l_IsSimonSays = false;
 
 				for (int k = 0; k < colliders.Length; k++)
 				{
-					if (colliders[k].tag == "Wall_Puzzle")
-					{
-						l_IsTransitable = false;
-					}
+                    if (colliders[k].tag == "Wall_Puzzle")
+                    {
+                        l_IsTransitable = false;
+                    }
+                    else if (colliders[k].tag == "Node_SimonSays")
+                    {
+                        l_IsSimonSays = true;
+                    }
 				}
-				m_Grid[i, o] = new Node(i, o, m_Node_size, worldNodePosition, l_IsTransitable);
+				m_Grid[i, o] = new Node(i, o, m_Node_size, worldNodePosition, l_IsTransitable, l_IsSimonSays);
 			}
 
 		}
@@ -147,17 +152,19 @@ public class Node
 	public Vector3 worldPosition;
 	public bool isTransitable = true;
     public bool hasBeenVisited = false;
+    public bool isSimonSays = false;
 
     public Node() { }
 
 
-	public Node(int gridPositionX, int _gridPositionY,int _nodeSize, Vector3 _nPos, bool _transitable)
+	public Node(int gridPositionX, int _gridPositionY,int _nodeSize, Vector3 _nPos, bool _transitable, bool _SimonSays)
 	{
 		this.gridPositionX = gridPositionX;
 		this.gridPositionY = _gridPositionY;
 		nodeSize = _nodeSize;
 		worldPosition = _nPos;
 		isTransitable = _transitable;
+        isSimonSays = _SimonSays;
 		//Debug.Log(gridPositionX + "," + gridPositionY);
 	}
 }

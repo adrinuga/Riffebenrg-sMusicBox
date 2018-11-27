@@ -41,11 +41,11 @@ public class BallMovement : MonoBehaviour {
 
         if(!m_CurrentNode.isTransitable)
         {
-            ResetPosition();
+            PuzzleManager.m_instance.ResetPlayerPosition();
         }
     }
 
-    private void ResetPosition()
+    public void ResetPosition()
     {
         m_CurrentNode = m_GameGrid.GetNodeContainingPosition(m_SpawnPosition);
         transform.position = m_CurrentNode.worldPosition;
@@ -147,10 +147,9 @@ public class BallMovement : MonoBehaviour {
         {
             if (m_GameGrid.GetNodeContainingPosition(m_NextPosition).hasBeenVisited)
             {
-                ResetPosition();
+                PuzzleManager.m_instance.ResetPlayerPosition();
                 m_GameGrid.ResetVisitedNodes();
             }
-
         }
     }
     private void ChangeCanMoveState()

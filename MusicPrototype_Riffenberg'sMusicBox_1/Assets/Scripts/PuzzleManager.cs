@@ -32,6 +32,11 @@ public class PuzzleManager : MonoBehaviour {
     //RythmPuzzle
 
     //SimonSaysPuzzle
+    [SerializeField] private Transform[] SimonSaysTransforms;
+    [SerializeField] private AudioSource[] SimonSaysAudioSources;
+    [SerializeField] private AudioSource m_AudioSource;
+    [SerializeField] private AudioClip m_FinalAudio;
+    private bool[] m_CurrentSimonSaysVisited;
 
 
     void Awake()
@@ -63,7 +68,12 @@ public class PuzzleManager : MonoBehaviour {
                     break;
 
             case TypeOfPuzzles.SimonSays:
-
+                m_CurrentSimonSaysVisited = new bool[SimonSaysTransforms.Length];
+                for (int i = 0; i < SimonSaysTransforms.Length; i++)
+                {
+                    m_CurrentSimonSaysVisited[i] = false;
+                }
+                m_AudioSource.Play();
                 break;
         }
     }
@@ -90,14 +100,89 @@ public class PuzzleManager : MonoBehaviour {
 
                 if (m_Ball.m_CurrentNode == m_LastNode)
                 {
-
+                    //Puzzle finished
                     Debug.Break();
                 }
                 break;
 
             case TypeOfPuzzles.SimonSays:
 
+                if(m_Ball.m_CurrentNode.isSimonSays)
+                {
+                    for (int i = 0; i < SimonSaysTransforms.Length; i++)
+                    {
+                        if (m_Grid.GetNodeContainingPosition(SimonSaysTransforms[i].position) == m_Ball.m_CurrentNode)
+                        {
+                            if(i > 0)
+                            {
+                                if (m_CurrentSimonSaysVisited[i - 1])
+                                {
+                                    if (!SimonSaysAudioSources[i].isPlaying && !m_CurrentSimonSaysVisited[i])
+                                    {
+                                        SimonSaysAudioSources[i].Play();
+                                        if(m_AudioSource.isPlaying)
+                                        {
+                                            m_AudioSource.Stop();
+                                        }
+                                    }
+
+                                    m_CurrentSimonSaysVisited[i] = true;
+
+                                }
+                                else
+                                {
+                                    ResetPlayerPosition();
+                                }
+                            }
+                            else if(i == 0)
+                            {
+                                if (!SimonSaysAudioSources[i].isPlaying && !m_CurrentSimonSaysVisited[i])
+                                {
+                                    SimonSaysAudioSources[i].Play();
+                                    if (m_AudioSource.isPlaying)
+                                    {
+                                        m_AudioSource.Stop();
+                                    }
+                                }
+
+                                m_CurrentSimonSaysVisited[i] = true;
+                            }
+                        }
+                    }
+
+
+                    
+                }
+
+                int l_SimonSaysVisitedNodes = 0;
+                for (int i = 0; i < SimonSaysTransforms.Length; i++)
+                {
+                    if (m_Grid.GetNodeContainingPosition(SimonSaysTransforms[i].position).hasBeenVisited)
+                    {
+                        l_SimonSaysVisitedNodes++;
+                    }
+                }
+                if (l_SimonSaysVisitedNodes == SimonSaysTransforms.Length)
+                {
+                    //Puzzle finished
+                    Debug.Break();
+                }
                 break;
         }
+
+
 	}
+
+    public void ResetPlayerPosition()
+    {
+        if(m_PuzzleType == TypeOfPuzzles.SimonSays)
+        {
+            for (int j = 0; j < SimonSaysTransforms.Length; j++)
+            {
+                m_CurrentSimonSaysVisited[j] = false;
+                m_Ball.ResetPosition();
+            }
+        }
+    }
+
 }

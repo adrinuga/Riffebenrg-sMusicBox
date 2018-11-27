@@ -7,7 +7,6 @@ public class MovingWall : MonoBehaviour
 {
 
     [SerializeField] private GridScript m_Grid;
-    [SerializeField] private PuzzleManager m_PuzzleManager;
     [SerializeField] private Slider m_Slider;
     [SerializeField] private Transform[] m_Positions;
     [SerializeField] private float m_Speed = 50f;
