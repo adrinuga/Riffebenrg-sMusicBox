@@ -97,19 +97,40 @@ public class RingScript : MonoBehaviour
         float l_originalRot = transform.rotation.eulerAngles.x;
         float l_rotCounting = 0f;
 
+        if (Mathf.Sign( l_originalRot)<0)
+        {
+            _angles *= -1;
+        }
+
         float l_finalRotAngles = l_originalRot + _angles;
 
-        Quaternion l_finalRot = Quaternion.Euler(0, l_originalRot + _angles, 0);
-        Debug.Log(l_originalRot + _angles);
+        Quaternion l_finalRot = Quaternion.Euler(l_finalRotAngles, transform.rotation.y, transform.rotation.z);
+       
         while (l_rotCounting < Mathf.Abs(_angles))
         {
             l_rotCounting += m_rotSpeed * Time.deltaTime;
-            transform.RotateAround(transform.position, - Vector3.forward, Mathf.Sign(_angles) * m_rotSpeed * Time.deltaTime);
+            transform.RotateAround(transform.position, -Vector3.forward, Mathf.Sign(_angles) * m_rotSpeed * Time.deltaTime);
             yield return null;
         }
- 
+        //transform.rotation = Quaternion.Slerp(transform.rotation, l_finalRot, Time.deltaTime * m_rotSpeed);
+        //if (transform.rotation == l_finalRot) { yield return null; }
 
-        transform.eulerAngles = new Vector3(l_finalRotAngles, transform.eulerAngles.y, transform.eulerAngles.z);
+        //transform.Rotate(new Vector3 (l_finalRotAngles, 0,0));
+
+        Debug.Log(Mathf.Sign(transform.rotation.x));
+
+        if(Mathf.Sign( transform.eulerAngles.x)!= Mathf.Sign(l_finalRotAngles))
+        {
+            l_finalRotAngles *= -1;
+            Debug.Log("ChangeSign");
+        }
+        Debug.Log(l_finalRotAngles);
+
+        transform.localEulerAngles = new Vector3(l_finalRotAngles, 0, 90);
+        //transform.eulerAngles = new Vector3(l_finalRotAngles, transform.eulerAngles.y, transform.eulerAngles.z);
+        //transform.RotateAround(Vector3.zero, Vector3.right, l_finalRotAngles);
+
+        //transform.localRotation = Quaternion.Euler(l_finalRotAngles, transform.eulerAngles.y, 0);
 
         GameManager.m_instance.m_finalPuzzle.m_canAct = true;
 
