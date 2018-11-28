@@ -9,6 +9,12 @@ public class FinalPuzzleMov : MonoBehaviour
 
     private RingScript m_actualRing;
 
+    void Start()
+    {
+        GameManager.m_instance.m_finalPuzzle = this;
+        this.enabled = false;
+    }
+
 	// Use this for initialization
 
     void OnEnable()
@@ -18,7 +24,7 @@ public class FinalPuzzleMov : MonoBehaviour
     }
     void OnDisable()
     {
-        Debug.Log("disableRing");
+        m_actualRing.DisableRing();
     }
 
 	

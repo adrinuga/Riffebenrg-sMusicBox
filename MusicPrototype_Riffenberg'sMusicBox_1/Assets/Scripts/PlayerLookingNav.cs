@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class PlayerLookingNav : MonoBehaviour
 {
@@ -25,11 +27,21 @@ public class PlayerLookingNav : MonoBehaviour
     [SerializeField]
     Transform m_UIObject;
 
-   // private Vector3 m_mousePosSave;
-   
+    [SerializeField] Animation m_cameraAnimation;
 
-	// Use this for initialization
-	void Start ()
+    [Header("Events")]
+
+    [SerializeField]
+    private UnityEvent
+        m_CloseToFinal,
+        m_OutFromFinal
+        ;
+
+    // private Vector3 m_mousePosSave;
+
+
+    // Use this for initialization
+    void Start ()
     {
         GameManager.m_instance.m_playerNav = this;
         m_SceneCamera = Camera.main;
@@ -92,6 +104,15 @@ public class PlayerLookingNav : MonoBehaviour
         StartCoroutine(WaitTimeToNotMoving(_time, false));
         
     }
+    public void PlayAnimation(AnimationClip _clip)
+    {
+        m_cameraAnimation.clip = _clip;
+
+        m_cameraAnimation.Play();
+
+        m_isMoving = true;
+    }
+
     IEnumerator RotateObject(float _angles)
     {
         HideMouse();
@@ -135,41 +156,8 @@ public class PlayerLookingNav : MonoBehaviour
         ShowMouse();
     }
 
-    IEnumerator MoveObject(Vector3 _targetPos,Quaternion _targetRot, bool _detachEnd)
-    {
-        float l_originalRot = m_actualObject.transform.rotation.y;
-        float l_rotCounting = 0f;
-        
-
-        while ((_targetPos - m_actualObject.position).magnitude <= 0)
-        {
-            l_rotCounting += m_rotSpeed * Time.deltaTime;
-           // m_actualObject.Rotate(m_actualObject.position, Vector3.up, Mathf.Sign(_targetRot) * m_rotSpeed * Time.deltaTime);
-            Vector3 l_direction = _targetPos - m_actualObject.position;
-            m_actualObject.position += l_direction * m_moveSpeed * Time.deltaTime;
-            //m_actualObject.rotation =;
-            yield return null;
-        }
-        if(_detachEnd)
-        {
-            m_actualObject = null;
-            m_BoxOn = false;
-           
-        }
-        else
-        {
-            m_UIObject.gameObject.SetActive(true);
-            m_BoxOn = true;
-        }
-        m_isMoving = false;
-    }
-    //IEnumerator CloseTopuzzle(Transform _targetToClose)
-    //{
-    //    //while ()
-    //    //{
-    //    //    yield return null;
-    //    //}
-    //}
+  
+   
 
     public void HideMouse()
     {
@@ -183,4 +171,19 @@ public class PlayerLookingNav : MonoBehaviour
        // Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
+    public void InvokeEvent(float _isClosingCamera)
+    {
+        if(_isClosingCamera <= 0)
+        {
+            m_CloseToFinal.Invoke();
+        }
+        else if (_isClosingCamera >= 0)
+        {
+            m_OutFromFinal.Invoke();
+        }
+        m_isMoving = false;
+
+    }
+   
+
 }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public List<InteractableObject> m_interactableObjects;
     public PlayerLookingNav m_playerNav;
+    public FinalPuzzleMov m_finalPuzzle;
     public bool 
         m_melodyPuzzle,
         m_rythmPuzzle,
