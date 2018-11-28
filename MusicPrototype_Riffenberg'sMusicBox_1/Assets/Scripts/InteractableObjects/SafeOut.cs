@@ -22,6 +22,7 @@ public class SafeOut : InteractableObject {
     void Start ()
     {
         GameManager.m_instance.m_interactableObjects.Add(this);
+
 	}
 	
 	// Update is called once per frame

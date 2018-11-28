@@ -25,7 +25,7 @@ public class PlayerLookingNav : MonoBehaviour
 
     private Transform m_actualObject;
     [SerializeField]
-    Transform m_UIObject;
+    public Transform m_UIObject;
 
     [SerializeField] Animation m_cameraAnimation;
 
@@ -37,7 +37,6 @@ public class PlayerLookingNav : MonoBehaviour
         m_OutFromFinal
         ;
 
-    // private Vector3 m_mousePosSave;
 
 
     // Use this for initialization

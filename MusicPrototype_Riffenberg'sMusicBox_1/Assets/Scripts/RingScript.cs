@@ -93,9 +93,11 @@ public class RingScript : MonoBehaviour
     }
     IEnumerator DoRotation(float _angles)
     {
-
+        GameManager.m_instance.m_finalPuzzle.m_canAct = false;
         float l_originalRot = transform.rotation.eulerAngles.x;
         float l_rotCounting = 0f;
+
+        float l_finalRotAngles = l_originalRot + _angles;
 
         Quaternion l_finalRot = Quaternion.Euler(0, l_originalRot + _angles, 0);
         Debug.Log(l_originalRot + _angles);
@@ -105,8 +107,11 @@ public class RingScript : MonoBehaviour
             transform.RotateAround(transform.position, - Vector3.forward, Mathf.Sign(_angles) * m_rotSpeed * Time.deltaTime);
             yield return null;
         }
+ 
 
-        transform.eulerAngles = new Vector3(l_originalRot + _angles, transform.eulerAngles.y, transform.eulerAngles.z);
+        transform.eulerAngles = new Vector3(l_finalRotAngles, transform.eulerAngles.y, transform.eulerAngles.z);
+
+        GameManager.m_instance.m_finalPuzzle.m_canAct = true;
 
         //Quaternion qTo = Quaternion.AngleAxis(l_originalRot + _angles, Vector3.right);
         //transform.rotation = qTo;

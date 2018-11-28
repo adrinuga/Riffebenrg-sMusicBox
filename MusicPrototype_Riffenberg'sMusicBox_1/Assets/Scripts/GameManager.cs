@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
         ;
     public bool m_finalAvaliable;
 
+
+    
+
 	// Use this for initialization
 	void Awake ()
     {
