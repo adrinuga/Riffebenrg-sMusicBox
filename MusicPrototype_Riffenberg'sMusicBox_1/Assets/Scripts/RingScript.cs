@@ -72,9 +72,6 @@ public class RingScript : MonoBehaviour
 
         StartCoroutine(DoRotation(l_angles*_sign));
 
-        Debug.Log(m_ringAudioIndex);
-
-
     }
     IEnumerator DoRotation(float _angles)
     {
