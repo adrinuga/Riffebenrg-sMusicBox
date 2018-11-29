@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 
 
@@ -10,7 +11,7 @@ public class PuzzleManager : MonoBehaviour {
 
     public static PuzzleManager m_instance = null;
 
-
+    public UnityEvent m_startLvlEvent;
 
 
     private enum TypeOfPuzzles {Rhythm, MovingWalls, SimonSays }
@@ -183,6 +184,10 @@ public class PuzzleManager : MonoBehaviour {
                 m_Ball.ResetPosition();
             }
         }
+    }
+    public void StartLevel()
+    {
+        print("EMPIEZA EL LEVEL");
     }
 
 }
