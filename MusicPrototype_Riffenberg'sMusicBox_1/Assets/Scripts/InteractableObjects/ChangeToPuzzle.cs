@@ -10,14 +10,54 @@ public class ChangeToPuzzle : InteractableObject {
     [SerializeField] Animation m_puzzleAnim;
     [SerializeField] AnimationClip m_changeSceneAnim;
 
+    public GameManager.PuzzleType m_sceneChangeType;
+
+    private bool m_completed;
+
     AsyncOperation m_async;
 
     // Use this for initialization
     void Start()
     {
         GameManager.m_instance.m_interactableObjects.Add(this);
-    }
 
+        if (GameManager.m_instance.m_beforeSceneInfo.m_lastIndexScene != 0)
+        {
+
+
+
+            switch(m_sceneChangeType)
+            {
+            case (GameManager.PuzzleType.puzzleM):
+
+                    if (GameManager.m_instance.m_puzzleCompletedM)
+                    {
+                        m_completed = true;
+                    }
+
+               
+
+                break;
+            case (GameManager.PuzzleType.puzzleH):
+
+                    if (GameManager.m_instance.m_puzzleCompletedH)
+                    {
+                        m_completed = true;
+                    }
+                   
+
+                break;
+            case (GameManager.PuzzleType.puzzleR):
+
+                    if (GameManager.m_instance.m_puzzleCompletedR)
+                    {
+                        m_completed = true;
+                    }
+                break;
+            }
+
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +65,7 @@ public class ChangeToPuzzle : InteractableObject {
     }
     public override void OnClick()
     {
-        if (GameManager.m_instance.m_playerNav.m_BoxOn)
+        if (GameManager.m_instance.m_playerNav.m_BoxOn && !m_completed)
         {
             Debug.Log("changeScene");
 
@@ -36,7 +76,7 @@ public class ChangeToPuzzle : InteractableObject {
     }
     public override void MouseOver()
     {
-        if (GameManager.m_instance.m_playerNav.m_BoxOn)
+        if (GameManager.m_instance.m_playerNav.m_BoxOn && !m_completed)
         {
 
             m_objectOutline.enabled = true;

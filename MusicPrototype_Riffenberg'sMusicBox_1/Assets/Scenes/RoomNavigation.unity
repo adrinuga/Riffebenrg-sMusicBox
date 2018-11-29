@@ -2751,6 +2751,7 @@ MonoBehaviour:
   m_objectOutline: {fileID: 969547355}
   m_puzzleAnim: {fileID: 0}
   m_changeSceneAnim: {fileID: 0}
+  m_sceneChangeType: 0
 --- !u!65 &969547357
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2894,7 +2895,7 @@ GameObject:
   - component: {fileID: 989906331}
   - component: {fileID: 989906330}
   m_Layer: 0
-  m_Name: Directional Light (3)
+  m_Name: SceneLights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2910,8 +2911,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.8160377, g: 0.82758707, b: 1, a: 1}
-  m_Intensity: 1.2
-  m_Range: 292.17
+  m_Intensity: 1
+  m_Range: 413.39
   m_SpotAngle: 116
   m_CookieSize: 10
   m_Shadows:
@@ -2920,7 +2921,7 @@ Light:
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0
-    m_NormalBias: 0.4
+    m_NormalBias: 0.2
     m_NearPlane: 0.1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
@@ -2944,11 +2945,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 989906329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.1, y: 12.4, z: -52.5}
+  m_LocalPosition: {x: 4.1, y: 23.699999, z: -52.5}
   m_LocalScale: {x: 13.625, y: 13.625, z: 13.625}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &990665852
 GameObject:
@@ -3459,7 +3460,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4294640920553232, guid: c46e041225b8a1f41a2dcd3fde73a4f0, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4417854020451124, guid: c46e041225b8a1f41a2dcd3fde73a4f0, type: 2}
       propertyPath: m_LocalPosition.x
@@ -3748,6 +3749,9 @@ MonoBehaviour:
   m_rythmPuzzle: 0
   m_harmonyPuzzle: 0
   m_finalAvaliable: 1
+  m_puzzleCompletedM: 0
+  m_puzzleCompletedH: 0
+  m_puzzleCompletedR: 0
 --- !u!4 &1198312491
 Transform:
   m_ObjectHideFlags: 0
@@ -4368,72 +4372,6 @@ MonoBehaviour:
   - {fileID: 1232247337}
   - {fileID: 1561643279}
   m_rotSpeed: 120
---- !u!1 &1288509392
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1288509394}
-  - component: {fileID: 1288509393}
-  m_Layer: 0
-  m_Name: Directional Light (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &1288509393
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1288509392}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 2
-  m_Color: {r: 0.8160377, g: 0.82758707, b: 1, a: 1}
-  m_Intensity: 2.57
-  m_Range: 65
-  m_SpotAngle: 116
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0
-    m_NormalBias: 0.4
-    m_NearPlane: 0.1
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &1288509394
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1288509392}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.9435, y: -8.2, z: 76.4}
-  m_LocalScale: {x: 13.625, y: 13.625, z: 13.625}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1293658826 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1079059413174734, guid: c3903aa04fbdd86429929689a49b7698,
@@ -5438,7 +5376,7 @@ GameObject:
   - component: {fileID: 1706126425}
   - component: {fileID: 1706126424}
   m_Layer: 0
-  m_Name: Directional Light (2)
+  m_Name: SceneLights1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5454,8 +5392,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.8160377, g: 0.82758707, b: 1, a: 1}
-  m_Intensity: 1.2
-  m_Range: 292.17
+  m_Intensity: 1
+  m_Range: 413.39
   m_SpotAngle: 116
   m_CookieSize: 10
   m_Shadows:
@@ -5464,7 +5402,7 @@ Light:
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0
-    m_NormalBias: 0.4
+    m_NormalBias: 0.2
     m_NearPlane: 0.1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
@@ -5488,11 +5426,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1706126423}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79.2, y: 12.4, z: -52.5}
+  m_LocalPosition: {x: 79.2, y: 23.699999, z: -52.5}
   m_LocalScale: {x: 13.625, y: 13.625, z: 13.625}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1714494346
 GameObject:
@@ -5829,6 +5767,7 @@ MonoBehaviour:
   m_objectOutline: {fileID: 1778532919}
   m_puzzleAnim: {fileID: 0}
   m_changeSceneAnim: {fileID: 0}
+  m_sceneChangeType: 0
 --- !u!65 &1778532921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6089,6 +6028,7 @@ MonoBehaviour:
   m_objectOutline: {fileID: 1819369638}
   m_puzzleAnim: {fileID: 0}
   m_changeSceneAnim: {fileID: 0}
+  m_sceneChangeType: 0
 --- !u!65 &1819369640
 BoxCollider:
   m_ObjectHideFlags: 0
