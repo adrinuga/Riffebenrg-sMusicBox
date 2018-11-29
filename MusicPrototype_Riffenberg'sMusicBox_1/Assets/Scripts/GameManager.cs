@@ -16,8 +16,13 @@ public class GameManager : MonoBehaviour
         ;
     public bool m_finalAvaliable;
 
-
-    
+    public struct NavSceneInfo
+    {
+        public Vector3 m_boxPos;
+        public Quaternion m_boxRot;
+        public int m_lastIndexScene;
+    }
+    public NavSceneInfo m_beforeSceneInfo;
 
 	// Use this for initialization
 	void Awake ()
@@ -30,6 +35,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(gameObject);
 	}
     void Start()
     {
@@ -54,6 +60,12 @@ public class GameManager : MonoBehaviour
             
         }
         return l_iObject;
+    }
+    public void SaveInfo()
+    {
+        NavSceneInfo l_newSave = new NavSceneInfo();
+
+        
     }
 
 }
