@@ -10,6 +10,8 @@ public class RingScript : MonoBehaviour
     private AudioSource m_actualSource;
     [SerializeField] private float m_rotSpeed = 60.0f;
 
+    private bool l_UpsideDown = false;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -94,18 +96,30 @@ public class RingScript : MonoBehaviour
     IEnumerator DoRotation(float _angles)
     {
         GameManager.m_instance.m_finalPuzzle.m_canAct = false;
-        float l_originalRot = transform.rotation.eulerAngles.x;
+        float l_originalRot = transform.eulerAngles.x;
         float l_rotCounting = 0f;
 
-        if (Mathf.Sign( l_originalRot)<0)
-        {
-            _angles *= -1;
-        }
+        l_originalRot = Mathf.FloorToInt(l_originalRot);
 
-        float l_finalRotAngles = l_originalRot + _angles;
+        //Debug.Log(l_originalRot);
 
-        Quaternion l_finalRot = Quaternion.Euler(l_finalRotAngles, transform.rotation.y, transform.rotation.z);
-       
+
+
+
+        //if (Mathf.Sign( l_originalRot)<0)
+        //{
+        //    _angles *= -1;
+        //}
+
+        //if (l_originalRot <= -180.0f)
+        //    l_originalRot += 360.0f;
+
+
+
+        Debug.Log(transform.eulerAngles);
+
+        //Quaternion l_finalRot = Quaternion.Euler(l_finalRotAngles, transform.rotation.y, transform.rotation.z);
+
         while (l_rotCounting < Mathf.Abs(_angles))
         {
             l_rotCounting += m_rotSpeed * Time.deltaTime;
@@ -117,17 +131,77 @@ public class RingScript : MonoBehaviour
 
         //transform.Rotate(new Vector3 (l_finalRotAngles, 0,0));
 
-        Debug.Log(Mathf.Sign(transform.rotation.x));
+        
 
-        if(Mathf.Sign( transform.eulerAngles.x)!= Mathf.Sign(l_finalRotAngles))
+        float l_anglesAfterRot = transform.localEulerAngles.x;
+
+
+
+
+        //if (l_anglesAfterRot > 180)
+        //{
+        //    // l_anglesAfterRot -= 360;
+        //    l_finalRotAngles  = 0;
+
+        //}
+
+
+        //Debug.Log(l_anglesAfterRot);
+
+        //if (Mathf.Floor(l_originalRot)==0)
+        //{
+        //    l_originalRot = (transform.localEulerAngles.y + transform.localEulerAngles.z) - 360;
+
+        //    if (l_originalRot < 0) { l_originalRot = 0; }
+        //}
+        Debug.Log("Rot before sum " + l_originalRot);
+
+        float l_finalRotAngles = l_originalRot + _angles;
+
+        Debug.Log("Final rot after sum " + l_finalRotAngles);
+
+        if (_angles > 0)
         {
-            l_finalRotAngles *= -1;
-            Debug.Log("ChangeSign");
-        }
-        Debug.Log(l_finalRotAngles);
 
-        transform.localEulerAngles = new Vector3(l_finalRotAngles, 0, 90);
-        //transform.eulerAngles = new Vector3(l_finalRotAngles, transform.eulerAngles.y, transform.eulerAngles.z);
+            if (l_finalRotAngles >= 180)
+            {
+                l_UpsideDown = true;
+            }
+            if (l_finalRotAngles >= 360)
+            {
+                l_UpsideDown = false;
+            }
+
+            if (l_UpsideDown)
+            {
+                l_finalRotAngles -= 180;
+            }
+        }
+        else if (_angles < 0)
+        {
+            if (l_finalRotAngles <= -180)
+            {
+                l_UpsideDown = true;
+            }
+            if (l_finalRotAngles <= -360)
+            {
+                l_UpsideDown = false;
+            }
+
+            if (l_UpsideDown)
+            {
+                l_finalRotAngles -= 180;
+            }
+        }
+        Debug.Log("Final rot after sign change " + l_finalRotAngles);
+
+
+        //transform.localEulerAngles = new Vector3(l_finalRotAngles, 0, 90);
+
+        // transform.rotation = Quaternion.AngleAxis(l_finalRotAngles, -Vector3.forward);
+
+
+        transform.eulerAngles = new Vector3(l_finalRotAngles, transform.eulerAngles.y, transform.eulerAngles.z);
         //transform.RotateAround(Vector3.zero, Vector3.right, l_finalRotAngles);
 
         //transform.localRotation = Quaternion.Euler(l_finalRotAngles, transform.eulerAngles.y, 0);

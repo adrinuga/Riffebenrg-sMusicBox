@@ -69,9 +69,18 @@ public class FinalPuzzleMov : MonoBehaviour
     {
         foreach(RingScript ring in m_ringList)
         {
-            if(ring.m_ringAudioIndex == m_finalCombination[m_ringList.IndexOf(ring)])
+            if(ring.m_ringAudioIndex == 0)
             {
+                break;
+                
             }
+            else
+            {
+                if (ring.m_ringAudioIndex == m_finalCombination[m_ringList.IndexOf(ring)])
+                {
+                }
+            }
+            
 
         }
 
