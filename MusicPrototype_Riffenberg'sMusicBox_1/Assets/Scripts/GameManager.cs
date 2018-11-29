@@ -22,7 +22,21 @@ public class GameManager : MonoBehaviour
         public Quaternion m_boxRot;
         public int m_lastIndexScene;
     }
+    [HideInInspector]
+    public bool
+        m_puzzleCompletedM = false,
+        m_puzzleCompletedH = false,
+        m_puzzleCompletedR = false
+        ;
+
     public NavSceneInfo m_beforeSceneInfo;
+
+    public enum PuzzleType
+    {
+        puzzleM,
+        puzzleH,
+        puzzleR
+    }
 
 	// Use this for initialization
 	void Awake ()
@@ -36,6 +50,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        m_beforeSceneInfo.m_lastIndexScene = 0;
 	}
     void Start()
     {
@@ -61,11 +77,40 @@ public class GameManager : MonoBehaviour
         }
         return l_iObject;
     }
-    public void SaveInfo()
+    public void SaveInfo(Vector3 _boxPos, Quaternion _boxRot, int _sceneIndex)
     {
         NavSceneInfo l_newSave = new NavSceneInfo();
 
-        
+        l_newSave.m_boxRot = _boxRot;
+        l_newSave.m_boxPos = _boxPos;
+
+        l_newSave.m_lastIndexScene = _sceneIndex;
+
+        m_beforeSceneInfo = l_newSave;
+    }
+    public void AddCompletedPuzzle(PuzzleType _pType)
+    {
+        switch (_pType)
+        {
+            case (PuzzleType.puzzleM):
+
+                m_puzzleCompletedM = true;
+
+                break;
+            case (PuzzleType.puzzleH):
+
+                m_puzzleCompletedH = true;
+
+                break;
+            case (PuzzleType.puzzleR):
+
+                m_puzzleCompletedR = true;
+
+                break;
+        }
+
+        if (m_puzzleCompletedH && m_puzzleCompletedR && m_puzzleCompletedM)
+            m_finalAvaliable = true;
     }
 
 }

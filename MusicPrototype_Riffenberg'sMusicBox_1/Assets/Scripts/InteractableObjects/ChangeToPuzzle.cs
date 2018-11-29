@@ -73,7 +73,7 @@ public class ChangeToPuzzle : InteractableObject {
     }
     public void ActivateScene()
     {
-        GameManager.m_instance.SaveInfo();
+        GameManager.m_instance.SaveInfo(transform.root.position,transform.root.rotation,m_sceneToChange);
         Debug.Log("goChange");
         m_async.allowSceneActivation = true;
     }

@@ -44,7 +44,13 @@ public class PlayerLookingNav : MonoBehaviour
     {
         GameManager.m_instance.m_playerNav = this;
         m_SceneCamera = Camera.main;
-	}
+
+        if (GameManager.m_instance.m_beforeSceneInfo.m_lastIndexScene != 0)
+        {
+            m_BoxOn = true;
+            m_UIObject.gameObject.SetActive(true);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update ()

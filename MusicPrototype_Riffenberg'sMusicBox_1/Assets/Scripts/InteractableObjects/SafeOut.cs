@@ -23,6 +23,14 @@ public class SafeOut : InteractableObject {
     {
         GameManager.m_instance.m_interactableObjects.Add(this);
 
+        if(GameManager.m_instance.m_beforeSceneInfo.m_lastIndexScene != 0)
+        {
+            transform.root.position = GameManager.m_instance.m_beforeSceneInfo.m_boxPos;
+            transform.root.rotation = GameManager.m_instance.m_beforeSceneInfo.m_boxRot;
+            m_puzzlesInside.gameObject.SetActive(true);
+            transform.gameObject.SetActive(false);
+        }
+
 	}
 	
 	// Update is called once per frame
