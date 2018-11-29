@@ -13,11 +13,11 @@ public class RingScript : MonoBehaviour
     public void EnableRing() 
     {
         m_ringOutline.enabled = true;
-        Debug.Log("enable");
+        //Debug.Log("enable");
     }
     public void DisableRing()
     {
-        Debug.Log("disable");
+        //Debug.Log("disable");
         m_ringOutline.enabled = false;
     }
     public void RotateRing(int _sign)
@@ -28,11 +28,11 @@ public class RingScript : MonoBehaviour
            
         }
 
-        float l_angles = 360 / m_ringAudioSources.Count;
+        float l_angles = 360 / (m_ringAudioSources.Count + 1);
 
         if (_sign > 0)
         {
-            if(m_ringAudioIndex >= m_ringAudioSources.Count )
+            if(m_ringAudioIndex >= m_ringAudioSources.Count)
             {
                 
                 m_ringAudioIndex = 0;
@@ -49,7 +49,7 @@ public class RingScript : MonoBehaviour
         {
             if (m_ringAudioIndex <= 0)
             {
-                m_ringAudioIndex = m_ringAudioSources.Count ;
+                m_ringAudioIndex = m_ringAudioSources.Count;
 
             }
             else
@@ -71,6 +71,9 @@ public class RingScript : MonoBehaviour
         }
 
         StartCoroutine(DoRotation(l_angles*_sign));
+
+        Debug.Log(m_ringAudioIndex);
+
 
     }
     IEnumerator DoRotation(float _angles)
