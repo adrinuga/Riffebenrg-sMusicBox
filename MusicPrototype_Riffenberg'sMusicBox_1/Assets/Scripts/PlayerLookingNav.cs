@@ -166,14 +166,10 @@ public class PlayerLookingNav : MonoBehaviour
 
     public void HideMouse()
     {
-       // m_mousePosSave = Input.mousePosition;
-      //  Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
     public void ShowMouse()
     {
-        //Input.mousePosition = m_mousePosSave;
-       // Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
     public void InvokeEvent(float _isClosingCamera)

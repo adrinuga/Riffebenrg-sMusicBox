@@ -39,7 +39,7 @@ public class FinalPuzzleMov : MonoBehaviour
             {
                 if (m_ringList.IndexOf(m_actualRing) > 0)
                 {
-                    Debug.Log("UpRing");
+                   
                     m_actualRing.DisableRing();
                     m_actualRing = m_ringList[m_ringList.IndexOf(m_actualRing) - 1];
                     m_actualRing.EnableRing();
@@ -49,7 +49,7 @@ public class FinalPuzzleMov : MonoBehaviour
             {
                 if (m_ringList.IndexOf(m_actualRing) < m_ringList.Count - 1)
                 {
-                    Debug.Log("DownRing");
+                    
                     m_actualRing.DisableRing();
                     m_actualRing = m_ringList[m_ringList.IndexOf(m_actualRing) + 1];
                     m_actualRing.EnableRing();
