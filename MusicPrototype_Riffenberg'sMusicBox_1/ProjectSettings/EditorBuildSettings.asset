@@ -8,10 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/RoomNavigation.unity
     guid: 343c138f9353c6f49a425db4a7273b74
   - enabled: 1
-    path: Assets/Scenes/Puzzle1.unity
-    guid: 5e3ebbca9c1f57a49a227af326fa01ae
+    path: Assets/Scenes/SimonSaysPuzzle.unity
+    guid: 6272f71688f71514ca6f86c3ba279d57
+  - enabled: 1
+    path: Assets/Scenes/MovingWallsPuzzle.unity
+    guid: d1ea0e7d1fe66194886e159b1f71640c
+  - enabled: 1
+    path: Assets/Scenes/RhythmPuzzle.unity
+    guid: fed8801095d5ae34ca53ddd66e710433
   m_configObjects: {}
