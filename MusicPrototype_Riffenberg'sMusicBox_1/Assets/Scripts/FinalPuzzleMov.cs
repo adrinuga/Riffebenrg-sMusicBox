@@ -85,4 +85,24 @@ public class FinalPuzzleMov : MonoBehaviour
         }
 
     }
+    public void MuteAllRingsSources()
+    {
+        foreach(RingScript r in m_ringList)
+        {
+            foreach(AudioSource a in r.m_ringAudioSources)
+            {
+                a.mute = true;
+            }
+        }
+    }
+    public void UnmuteSelectedSources()
+    {
+        foreach(RingScript r in m_ringList)
+        {
+            if(r.m_actualSource != null)
+            {
+                r.m_actualSource.mute = false;
+            }
+        }
+    }
 }

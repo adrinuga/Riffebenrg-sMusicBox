@@ -7,7 +7,7 @@ public class RingScript : MonoBehaviour
     public Outline m_ringOutline;
     public int m_ringAudioIndex;
     public List<AudioSource> m_ringAudioSources = new List<AudioSource>();
-    private AudioSource m_actualSource;
+    public AudioSource m_actualSource;
     [SerializeField] private float m_rotSpeed = 60.0f;
 
     public void EnableRing() 
