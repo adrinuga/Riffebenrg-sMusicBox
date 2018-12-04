@@ -32,6 +32,7 @@ public class PuzzleManager : MonoBehaviour {
 
 
     //RythmPuzzle
+    [SerializeField] private BallRhythmMovement m_BallRythm;
 
     //SimonSaysPuzzle
     [SerializeField] private Transform[] SimonSaysTransforms;
@@ -63,6 +64,7 @@ public class PuzzleManager : MonoBehaviour {
         switch (m_PuzzleType)
         {
             case GameManager.PuzzleType.puzzleR:
+                m_LastNode = m_Grid.GetNodeContainingPosition(m_LastPosition.position);
 
                 break;
 
@@ -93,7 +95,11 @@ public class PuzzleManager : MonoBehaviour {
 		switch(m_PuzzleType)
         {
             case GameManager.PuzzleType.puzzleR:
-
+                if (m_BallRythm.m_CurrentNode == m_LastNode)
+                {
+                    //Puzzle finished
+                    ActivateScene();
+                }
                 break;
 
             case GameManager.PuzzleType.puzzleH:
@@ -107,7 +113,7 @@ public class PuzzleManager : MonoBehaviour {
 
 
 
-                if (m_Ball.m_CurrentNode == m_LastNode && m_async.progress >= 0.9f)
+                if (m_Ball.m_CurrentNode == m_LastNode)
                 {
                     //Puzzle finished
                     ActivateScene();
