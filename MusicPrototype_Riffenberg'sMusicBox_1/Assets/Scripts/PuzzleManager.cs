@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+
 
 
 
@@ -14,8 +16,7 @@ public class PuzzleManager : MonoBehaviour {
     public UnityEvent m_startLvlEvent;
 
 
-    private enum TypeOfPuzzles {Rhythm, MovingWalls, SimonSays }
-    [SerializeField] TypeOfPuzzles m_PuzzleType;
+    [SerializeField] GameManager.PuzzleType m_PuzzleType;
 
     [SerializeField] private BallMovement m_Ball;
     [SerializeField] private GridScript m_Grid;
@@ -40,6 +41,11 @@ public class PuzzleManager : MonoBehaviour {
     private bool[] m_CurrentSimonSaysVisited;
 
 
+    //Change Scene
+    [SerializeField] private int m_sceneToChange;
+    private AsyncOperation m_async;
+
+
     void Awake()
     {
         if (m_instance == null)
@@ -56,11 +62,11 @@ public class PuzzleManager : MonoBehaviour {
     void Start () {
         switch (m_PuzzleType)
         {
-            case TypeOfPuzzles.Rhythm:
+            case GameManager.PuzzleType.puzzleR:
 
                 break;
 
-            case TypeOfPuzzles.MovingWalls:
+            case GameManager.PuzzleType.puzzleH:
 
                 //Save the final node
                 m_LastNode = m_Grid.GetNodeContainingPosition(m_LastPosition.position);
@@ -68,7 +74,7 @@ public class PuzzleManager : MonoBehaviour {
 
                     break;
 
-            case TypeOfPuzzles.SimonSays:
+            case GameManager.PuzzleType.puzzleM:
                 m_CurrentSimonSaysVisited = new bool[SimonSaysTransforms.Length];
                 for (int i = 0; i < SimonSaysTransforms.Length; i++)
                 {
@@ -77,6 +83,8 @@ public class PuzzleManager : MonoBehaviour {
                 m_AudioSource.Play();
                 break;
         }
+
+        StartCoroutine(LoadScene());
     }
 
 	
@@ -84,29 +92,29 @@ public class PuzzleManager : MonoBehaviour {
 	void Update () {
 		switch(m_PuzzleType)
         {
-            case TypeOfPuzzles.Rhythm:
+            case GameManager.PuzzleType.puzzleR:
 
                 break;
 
-            case TypeOfPuzzles.MovingWalls:
+            case GameManager.PuzzleType.puzzleH:
 
                 //Update the music effects
                 for (int i = 0; i < m_Sliders.Length; i++)
                 {
-                    m_AudioMixer.SetFloat("P" + i, m_Sliders[i].value);
+                    m_AudioMixer.SetFloat("EQ" + i, m_Sliders[i].value);
 
                 }
 
 
 
-                if (m_Ball.m_CurrentNode == m_LastNode)
+                if (m_Ball.m_CurrentNode == m_LastNode && m_async.progress >= 0.9f)
                 {
                     //Puzzle finished
-                    Debug.Break();
+                    ActivateScene();
                 }
                 break;
 
-            case TypeOfPuzzles.SimonSays:
+            case GameManager.PuzzleType.puzzleM:
 
                 if(m_Ball.m_CurrentNode.isSimonSays)
                 {
@@ -162,11 +170,12 @@ public class PuzzleManager : MonoBehaviour {
                     {
                         l_SimonSaysVisitedNodes++;
                     }
+
                 }
-                if (l_SimonSaysVisitedNodes == SimonSaysTransforms.Length)
+                if (l_SimonSaysVisitedNodes == SimonSaysTransforms.Length - 1 && m_Ball.transform.position == m_Grid.GetNodeContainingPosition(SimonSaysTransforms[SimonSaysTransforms.Length - 1].position).worldPosition)
                 {
                     //Puzzle finished
-                    Debug.Break();
+                    ActivateScene();
                 }
                 break;
         }
@@ -176,7 +185,7 @@ public class PuzzleManager : MonoBehaviour {
 
     public void ResetPlayerPosition()
     {
-        if(m_PuzzleType == TypeOfPuzzles.SimonSays)
+        if(m_PuzzleType == GameManager.PuzzleType.puzzleM)
         {
             for (int j = 0; j < SimonSaysTransforms.Length; j++)
             {
@@ -190,4 +199,21 @@ public class PuzzleManager : MonoBehaviour {
         print("EMPIEZA EL LEVEL");
     }
 
+    IEnumerator LoadScene()
+    {
+        m_async = SceneManager.LoadSceneAsync(m_sceneToChange);
+        m_async.allowSceneActivation = false;
+        yield return null;
+    }
+
+    public void ActivateScene()
+    {
+        if (m_async.progress >= 0.9f)
+        {
+            GameManager.m_instance.AddCompletedPuzzle(m_PuzzleType);
+            GameManager.m_instance.SaveInfo(transform.root.position, transform.root.rotation, m_sceneToChange);
+            Debug.Log("Changed to scene: " + m_sceneToChange);
+            m_async.allowSceneActivation = true;
+        }
+    }
 }
