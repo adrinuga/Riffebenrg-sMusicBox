@@ -846,7 +846,6 @@ GameObject:
   - component: {fileID: 401266875}
   - component: {fileID: 401266874}
   - component: {fileID: 401266873}
-  - component: {fileID: 401266876}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -914,37 +913,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &401266876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 401266872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a902fe117d947c42960e0ba45c54167, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_rotatePosTransform: {fileID: 0}
-  m_mouseMask:
-    serializedVersion: 2
-    m_Bits: 0
-  m_rotSpeed: 0
-  m_moveSpeed: 0
-  m_isMoving: 0
-  m_BoxOn: 0
-  m_UIObject: {fileID: 0}
-  m_cameraAnimation: {fileID: 0}
-  m_CloseToFinal:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_OutFromFinal:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &458609926
 GameObject:
   m_ObjectHideFlags: 0

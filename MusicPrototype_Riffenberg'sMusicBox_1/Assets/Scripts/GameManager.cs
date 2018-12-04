@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         ;
 
     public NavSceneInfo m_beforeSceneInfo;
+    [HideInInspector] public Transform m_SafePrevious;
 
     public enum PuzzleType
     {
@@ -55,14 +56,14 @@ public class GameManager : MonoBehaviour
 	}
     void Start()
     {
-        m_interactableObjects = new List<InteractableObject>();
+
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-		
-	}
+
+    }
     public InteractableObject  GetInteractableObject(Transform _object)
     {
         InteractableObject l_iObject = null;
@@ -111,6 +112,9 @@ public class GameManager : MonoBehaviour
 
         if (m_puzzleCompletedH && m_puzzleCompletedR && m_puzzleCompletedM)
             m_finalAvaliable = true;
+
+
+        m_interactableObjects = new List<InteractableObject>();
     }
 
 }

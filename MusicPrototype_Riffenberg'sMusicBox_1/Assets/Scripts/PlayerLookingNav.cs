@@ -23,7 +23,7 @@ public class PlayerLookingNav : MonoBehaviour
         m_BoxOn = false;
         
 
-    private Transform m_actualObject;
+    [HideInInspector]  public Transform m_actualObject;
     [SerializeField]
     public Transform m_UIObject;
 
@@ -49,7 +49,9 @@ public class PlayerLookingNav : MonoBehaviour
         {
             m_BoxOn = true;
             m_UIObject.gameObject.SetActive(true);
+
         }
+
     }
 	
 	// Update is called once per frame

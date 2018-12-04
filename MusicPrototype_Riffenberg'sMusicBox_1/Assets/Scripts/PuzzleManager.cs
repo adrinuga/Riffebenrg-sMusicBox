@@ -223,7 +223,7 @@ public class PuzzleManager : MonoBehaviour {
         if (m_async.progress >= 0.9f)
         {
             GameManager.m_instance.AddCompletedPuzzle(m_PuzzleType);
-            GameManager.m_instance.SaveInfo(transform.root.position, transform.root.rotation, m_sceneToChange);
+
             Debug.Log("Changed to scene: " + m_sceneToChange);
             m_async.allowSceneActivation = true;
         }

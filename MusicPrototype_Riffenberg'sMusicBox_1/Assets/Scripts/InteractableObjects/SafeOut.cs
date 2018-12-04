@@ -29,6 +29,9 @@ public class SafeOut : InteractableObject {
             transform.root.rotation = GameManager.m_instance.m_beforeSceneInfo.m_boxRot;
             m_puzzlesInside.gameObject.SetActive(true);
             transform.gameObject.SetActive(false);
+
+            GameManager.m_instance.m_SafePrevious = transform.root;
+            
         }
 
 	}
