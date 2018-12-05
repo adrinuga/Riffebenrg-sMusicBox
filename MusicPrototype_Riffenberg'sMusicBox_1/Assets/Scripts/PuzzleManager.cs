@@ -26,6 +26,8 @@ public class PuzzleManager : MonoBehaviour {
 
     private Node m_LastNode;
 
+    private bool m_Completed = false;
+
 
     //RythmPuzzle
     [SerializeField] private BallRhythmMovement m_BallRythm;
@@ -98,7 +100,9 @@ public class PuzzleManager : MonoBehaviour {
                 if (m_BallRythm.m_CurrentNode == m_LastNode)
                 {
                     //Puzzle finished
+                    m_Completed = true;
                     ActivateScene();
+
                 }
                 break;
 
@@ -116,6 +120,7 @@ public class PuzzleManager : MonoBehaviour {
                 if (m_Ball.transform.position == m_LastNode.worldPosition)
                 {
                     //Puzzle finished
+                    m_Completed = true;
                     ActivateScene();
                 }
                 break;
@@ -138,7 +143,8 @@ public class PuzzleManager : MonoBehaviour {
                                         if(m_AudioSource.isPlaying)
                                         {
                                             m_AudioSource.Stop();
-                                            m_IntroAnimation.Stop();
+                                            //m_IntroAnimation.Stop();
+
                                         }
 
                                     }
@@ -159,7 +165,9 @@ public class PuzzleManager : MonoBehaviour {
                                     if (m_AudioSource.isPlaying)
                                     {
                                         m_AudioSource.Stop();
-                                        m_IntroAnimation.Stop();
+                                        //m_IntroAnimation.Stop();
+
+
                                     }
                                 }
 
@@ -184,6 +192,7 @@ public class PuzzleManager : MonoBehaviour {
                 if (l_SimonSaysVisitedNodes == SimonSaysTransforms.Length - 1 && m_Ball.transform.position == m_Grid.GetNodeContainingPosition(SimonSaysTransforms[SimonSaysTransforms.Length - 1].position).worldPosition)
                 {
                     //Puzzle finished
+                    m_Completed = true;
                     ActivateScene();
                 }
                 break;
@@ -233,12 +242,17 @@ public class PuzzleManager : MonoBehaviour {
         m_FadeAnimator.SetBool("Fade", true);
         yield return new WaitUntil(() => m_FadeImage.color.a == 1);
 
-        if (m_async.progress >= 0.9f)
+        while (m_async.progress < 0.9f)
+        {
+            yield return null;
+        }
+        if(m_Completed)
         {
             GameManager.m_instance.AddCompletedPuzzle(m_PuzzleType);
-
-            Debug.Log("Changed to scene: " + m_sceneToChange);
-            m_async.allowSceneActivation = true;
         }
+        GameManager.m_instance.ResetLists();
+        Debug.Log("Changed to scene: " + m_sceneToChange);
+        m_async.allowSceneActivation = true;
+
     }
 }

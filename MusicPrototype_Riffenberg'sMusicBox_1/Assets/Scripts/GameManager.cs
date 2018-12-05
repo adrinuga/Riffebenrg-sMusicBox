@@ -108,12 +108,18 @@ public class GameManager : MonoBehaviour
                 m_puzzleCompletedR = true;
 
                 break;
+            default:
+                break;
         }
 
         if (m_puzzleCompletedH && m_puzzleCompletedR && m_puzzleCompletedM)
             m_finalAvaliable = true;
 
 
+    }
+
+    public void ResetLists()
+    {
         m_interactableObjects = new List<InteractableObject>();
     }
 

@@ -19,7 +19,6 @@ public class ChangeToPuzzle : InteractableObject {
     // Use this for initialization
     void Start()
     {
-        GameManager.m_instance.m_interactableObjects.Add(this);
 
         if (GameManager.m_instance.m_beforeSceneInfo.m_lastIndexScene != 0)
         {
@@ -56,6 +55,10 @@ public class ChangeToPuzzle : InteractableObject {
                 break;
             }
 
+        }
+        if(!m_completed)
+        {
+            GameManager.m_instance.m_interactableObjects.Add(this);
         }
     }
     // Update is called once per frame
