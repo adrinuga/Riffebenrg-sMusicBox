@@ -221,7 +221,6 @@ public class PuzzleManager : MonoBehaviour {
     }
     public void StartLevel()
     {
-        print("EMPIEZA EL LEVEL");
     }
 
     public void ActivateScene()
@@ -238,7 +237,6 @@ public class PuzzleManager : MonoBehaviour {
 
     IEnumerator ChangeScene()
     {
-        print("CHANING SCENE");
         m_FadeAnimator.SetBool("Fade", true);
         yield return new WaitUntil(() => m_FadeImage.color.a == 1);
 
