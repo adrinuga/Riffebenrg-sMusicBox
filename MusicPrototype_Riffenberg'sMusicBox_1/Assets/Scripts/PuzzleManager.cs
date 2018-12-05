@@ -100,7 +100,7 @@ public class PuzzleManager : MonoBehaviour {
                 if (m_BallRythm.m_CurrentNode == m_LastNode)
                 {
                     //Puzzle finished
-                    StartCoroutine(ActivateScene());
+                    ActivateScene();
                 }
                 break;
 
@@ -118,7 +118,7 @@ public class PuzzleManager : MonoBehaviour {
                 if (m_Ball.m_CurrentNode == m_LastNode)
                 {
                     //Puzzle finished
-                    StartCoroutine(ActivateScene());
+                    ActivateScene();
                 }
                 break;
 
@@ -183,7 +183,7 @@ public class PuzzleManager : MonoBehaviour {
                 if (l_SimonSaysVisitedNodes == SimonSaysTransforms.Length - 1 && m_Ball.transform.position == m_Grid.GetNodeContainingPosition(SimonSaysTransforms[SimonSaysTransforms.Length - 1].position).worldPosition)
                 {
                     //Puzzle finished
-                    StartCoroutine(ActivateScene());
+                    ActivateScene();
                 }
                 break;
         }
@@ -207,6 +207,11 @@ public class PuzzleManager : MonoBehaviour {
         print("EMPIEZA EL LEVEL");
     }
 
+    public void ActivateScene()
+    {
+        StartCoroutine(ChangeScene());
+    }
+
     IEnumerator LoadScene()
     {
         m_async = SceneManager.LoadSceneAsync(m_sceneToChange);
@@ -214,7 +219,7 @@ public class PuzzleManager : MonoBehaviour {
         yield return null;
     }
 
-    IEnumerator ActivateScene()
+    IEnumerator ChangeScene()
     {
 
         m_FadeAnimator.SetBool("Fade", true);
