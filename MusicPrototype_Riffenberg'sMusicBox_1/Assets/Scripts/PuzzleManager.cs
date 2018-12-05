@@ -253,9 +253,12 @@ public class PuzzleManager : MonoBehaviour {
                 m_AudioSource.Play();
             }
         }
-        while(m_AudioSource.isPlaying)
+        if (m_FinalAudio != null)
         {
-            yield return null;
+            while (m_AudioSource.isPlaying)
+            {
+                yield return null;
+            }
         }
         GameManager.m_instance.ResetLists();
         Debug.Log("Changed to scene: " + m_sceneToChange);
