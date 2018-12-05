@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -791,6 +791,7 @@ MonoBehaviour:
   m_puzzleCompletedM: 0
   m_puzzleCompletedH: 0
   m_puzzleCompletedR: 0
+  m_SafePrevious: {fileID: 0}
 --- !u!4 &364730115
 Transform:
   m_ObjectHideFlags: 0
