@@ -247,8 +247,11 @@ public class PuzzleManager : MonoBehaviour {
         if(m_Completed)
         {
             GameManager.m_instance.AddCompletedPuzzle(m_PuzzleType);
-            m_AudioSource.clip = m_FinalAudio;
-            m_AudioSource.Play();
+            if(m_FinalAudio != null)
+            {
+                m_AudioSource.clip = m_FinalAudio;
+                m_AudioSource.Play();
+            }
         }
         while(m_AudioSource.isPlaying)
         {
