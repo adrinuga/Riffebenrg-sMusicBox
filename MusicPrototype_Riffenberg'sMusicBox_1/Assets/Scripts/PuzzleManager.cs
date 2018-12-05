@@ -13,9 +13,6 @@ public class PuzzleManager : MonoBehaviour {
 
     public static PuzzleManager m_instance = null;
 
-    public UnityEvent m_startLvlEvent;
-
-
     [SerializeField] GameManager.PuzzleType m_PuzzleType;
 
     [SerializeField] private BallMovement m_Ball;
@@ -38,6 +35,7 @@ public class PuzzleManager : MonoBehaviour {
     [SerializeField] private AudioSource[] SimonSaysAudioSources;
     [SerializeField] private AudioSource m_AudioSource;
     [SerializeField] private AudioClip m_FinalAudio;
+    [SerializeField] private Animation m_IntroAnimation;
     private bool[] m_CurrentSimonSaysVisited;
 
 
@@ -84,6 +82,7 @@ public class PuzzleManager : MonoBehaviour {
                     m_CurrentSimonSaysVisited[i] = false;
                 }
                 m_AudioSource.Play();
+                m_IntroAnimation.Play();
                 break;
         }
 
@@ -93,7 +92,6 @@ public class PuzzleManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print(m_LastNode.worldPosition);
 		switch(m_PuzzleType)
         {
             case GameManager.PuzzleType.puzzleR:
@@ -140,7 +138,9 @@ public class PuzzleManager : MonoBehaviour {
                                         if(m_AudioSource.isPlaying)
                                         {
                                             m_AudioSource.Stop();
+                                            m_IntroAnimation.Stop();
                                         }
+
                                     }
 
                                     m_CurrentSimonSaysVisited[i] = true;
@@ -159,6 +159,7 @@ public class PuzzleManager : MonoBehaviour {
                                     if (m_AudioSource.isPlaying)
                                     {
                                         m_AudioSource.Stop();
+                                        m_IntroAnimation.Stop();
                                     }
                                 }
 
@@ -199,8 +200,15 @@ public class PuzzleManager : MonoBehaviour {
             {
                 m_CurrentSimonSaysVisited[j] = false;
             }
+            if(!m_IntroAnimation.isPlaying && !m_AudioSource.isPlaying)
+            {
+                m_IntroAnimation.Play();
+                m_AudioSource.Play();
+            }
+
         }
         m_Ball.ResetPosition();
+
     }
     public void StartLevel()
     {
