@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 85836a67e3a2d884cb5aa3f883973ade
+guid: d531ae974522e014cb4d01472b948f73
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -52,9 +52,9 @@ ModelImporter:
     4300002: Puerta
     4300004: "SoporteBot\xF3n"
     4300006: "Bot\xF3n"
-    4300008: Ring3
+    4300008: Ring1
     4300010: Ring2
-    4300012: Ring1
+    4300012: Ring3
     4300014: Cerradura
     4300016: Barra_Ring1
     4300018: Barra_Ring2

@@ -1,70 +1,21 @@
 fileFormatVersion: 2
-guid: 85836a67e3a2d884cb5aa3f883973ade
+guid: 843816287ce39b0448aa055587466b55
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Barra_Ring1
-    100002: Barra_Ring2
-    100004: Barra_Ring3
-    100006: "Bot\xF3n"
-    100008: Cerradura
-    100010: Puerta
-    100012: Ring1
-    100014: Ring2
-    100016: Ring3
-    100018: //RootNode
-    100020: "SoporteBot\xF3n"
-    400000: Barra_Ring1
-    400002: Barra_Ring2
-    400004: Barra_Ring3
-    400006: "Bot\xF3n"
-    400008: Cerradura
-    400010: Puerta
-    400012: Ring1
-    400014: Ring2
-    400016: Ring3
-    400018: //RootNode
-    400020: "SoporteBot\xF3n"
-    2100000: No Name
-    2300000: Barra_Ring1
-    2300002: Barra_Ring2
-    2300004: Barra_Ring3
-    2300006: "Bot\xF3n"
-    2300008: Cerradura
-    2300010: Puerta
-    2300012: Ring1
-    2300014: Ring2
-    2300016: Ring3
-    2300018: //RootNode
-    2300020: "SoporteBot\xF3n"
-    3300000: Barra_Ring1
-    3300002: Barra_Ring2
-    3300004: Barra_Ring3
-    3300006: "Bot\xF3n"
-    3300008: Cerradura
-    3300010: Puerta
-    3300012: Ring1
-    3300014: Ring2
-    3300016: Ring3
-    3300018: //RootNode
-    3300020: "SoporteBot\xF3n"
-    4300000: Caja
-    4300002: Puerta
-    4300004: "SoporteBot\xF3n"
-    4300006: "Bot\xF3n"
-    4300008: Ring3
-    4300010: Ring2
-    4300012: Ring1
-    4300014: Cerradura
-    4300016: Barra_Ring1
-    4300018: Barra_Ring2
-    4300020: Barra_Ring3
+    100000: //RootNode
+    400000: //RootNode
+    2100000: 'Material #23'
+    2100002: 'Material #9'
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Rose001
   externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -131,6 +82,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

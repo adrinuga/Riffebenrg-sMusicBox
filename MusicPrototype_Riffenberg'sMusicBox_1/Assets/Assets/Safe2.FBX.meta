@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 85836a67e3a2d884cb5aa3f883973ade
+guid: 77b5d931dc062f644bc3076048d48f31
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -52,9 +52,9 @@ ModelImporter:
     4300002: Puerta
     4300004: "SoporteBot\xF3n"
     4300006: "Bot\xF3n"
-    4300008: Ring3
+    4300008: Ring1
     4300010: Ring2
-    4300012: Ring1
+    4300012: Ring3
     4300014: Cerradura
     4300016: Barra_Ring1
     4300018: Barra_Ring2
@@ -131,6 +131,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
