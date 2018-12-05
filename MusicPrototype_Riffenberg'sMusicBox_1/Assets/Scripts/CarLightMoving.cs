@@ -4,19 +4,39 @@ using UnityEngine;
 
 public class CarLightMoving : MonoBehaviour {
 
-    [SerializeField] private Transform m_Light;
     [SerializeField] private float m_Speed = 2;
     [SerializeField] private float m_Distance;
+    [SerializeField] private Transform m_BackLight;
 
-    private Vector3 m_Destination;
+    private float BackLightOffset;
+
+    private bool m_Swap = false;
+
+    private Vector3 m_Origin;
 	// Use this for initialization
 	void Start () {
-        m_Destination = transform.position + Vector3.right * m_Distance;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        Vector3 mov = new Vector3(m_Destination.x + Mathf.Sin(m_Speed * Time.time) * m_Distance, transform.position.y, transform.position.z);
-        transform.position = mov;
+        m_Origin = transform.position + Vector3.right * m_Distance;
+        BackLightOffset = m_BackLight.localPosition.x;
+
+    }
+
+    // Update is called once per frame
+    void Update () {
+        print(m_BackLight.localPosition.x * -1);
+
+        float l_SinValue = Mathf.Sin(m_Speed * Time.time);
+        transform.position = new Vector3(m_Origin.x + l_SinValue * m_Distance, transform.position.y, transform.position.z);
+        if(Mathf.Abs(l_SinValue) > Mathf.Abs(0.8f) && !m_Swap)
+        {
+            m_BackLight.localPosition = new Vector3(BackLightOffset * -1, m_BackLight.localPosition.y, m_BackLight.localPosition.z);
+            BackLightOffset = -BackLightOffset;
+            m_Swap = true;
+        }
+        else if (Mathf.Abs(l_SinValue) < Mathf.Abs(0.5f) && m_Swap)
+        {
+            m_Swap = false;
+        }
+
+
     }
 }

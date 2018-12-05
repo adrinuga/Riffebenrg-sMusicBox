@@ -175,9 +175,6 @@ public class PuzzleManager : MonoBehaviour {
                             }
                         }
                     }
-
-
-                    
                 }
 
                 int l_SimonSaysVisitedNodes = 0;
