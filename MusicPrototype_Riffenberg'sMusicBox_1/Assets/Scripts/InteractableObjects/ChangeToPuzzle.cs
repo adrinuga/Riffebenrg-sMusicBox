@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class ChangeToPuzzle : InteractableObject {
 
@@ -9,6 +11,9 @@ public class ChangeToPuzzle : InteractableObject {
     [SerializeField] private Outline m_objectOutline;
     [SerializeField] Animation m_puzzleAnim;
     [SerializeField] AnimationClip m_changeSceneAnim;
+
+    [SerializeField] Animator m_FadeAnimator;
+    [SerializeField] Image m_FadeImage;
 
     public GameManager.PuzzleType m_sceneChangeType;
 
@@ -113,6 +118,11 @@ public class ChangeToPuzzle : InteractableObject {
 
         
 
+    }
+    IEnumerator Fade()
+    {
+        m_FadeAnimator.SetBool("Fade", true);
+        yield return new WaitUntil(() => m_FadeImage.color.a == 1);
     }
     public void ActivateScene()
     {
