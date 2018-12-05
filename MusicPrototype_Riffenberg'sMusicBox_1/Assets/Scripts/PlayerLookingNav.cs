@@ -49,6 +49,7 @@ public class PlayerLookingNav : MonoBehaviour
         {
             m_BoxOn = true;
             m_UIObject.gameObject.SetActive(true);
+            m_actualObject = GameManager.m_instance.m_SafePrevious;
 
         }
 
