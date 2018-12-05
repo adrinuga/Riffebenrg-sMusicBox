@@ -41,6 +41,7 @@ public class BallMovement : MonoBehaviour {
 
         if(!m_CurrentNode.isTransitable)
         {
+            print("Reset");
             PuzzleManager.m_instance.ResetPlayerPosition();
         }
     }

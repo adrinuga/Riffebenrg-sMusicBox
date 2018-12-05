@@ -2433,8 +2433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d0f70dfac2ace42b951c232ea5def8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size_x: 9
-  m_Size_y: 9
+  m_Size_x: 11
+  m_Size_y: 11
   m_Node_size: 1
 --- !u!4 &2048782222
 Transform:

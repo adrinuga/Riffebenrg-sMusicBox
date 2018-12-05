@@ -26,7 +26,6 @@ public class PuzzleManager : MonoBehaviour {
     [SerializeField] private AudioMixer m_AudioMixer;
 
     [SerializeField] private Slider[] m_Sliders;
-    [SerializeField] private int m_NumberOfWallPositions;
 
     private Node m_LastNode;
 
@@ -94,6 +93,7 @@ public class PuzzleManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        print(m_LastNode.worldPosition);
 		switch(m_PuzzleType)
         {
             case GameManager.PuzzleType.puzzleR:
@@ -115,7 +115,7 @@ public class PuzzleManager : MonoBehaviour {
 
 
 
-                if (m_Ball.m_CurrentNode == m_LastNode)
+                if (m_Ball.transform.position == m_LastNode.worldPosition)
                 {
                     //Puzzle finished
                     ActivateScene();
@@ -198,9 +198,9 @@ public class PuzzleManager : MonoBehaviour {
             for (int j = 0; j < SimonSaysTransforms.Length; j++)
             {
                 m_CurrentSimonSaysVisited[j] = false;
-                m_Ball.ResetPosition();
             }
         }
+        m_Ball.ResetPosition();
     }
     public void StartLevel()
     {
@@ -221,7 +221,7 @@ public class PuzzleManager : MonoBehaviour {
 
     IEnumerator ChangeScene()
     {
-
+        print("CHANING SCENE");
         m_FadeAnimator.SetBool("Fade", true);
         yield return new WaitUntil(() => m_FadeImage.color.a == 1);
 
