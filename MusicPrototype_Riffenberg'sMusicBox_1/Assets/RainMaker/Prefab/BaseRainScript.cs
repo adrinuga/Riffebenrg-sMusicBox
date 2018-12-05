@@ -14,6 +14,10 @@ namespace DigitalRuby.RainMaker
 {
     public class BaseRainScript : MonoBehaviour
     {
+        [Tooltip("General Audio Volume")]
+        [Range(0.0f, 1.0f)]
+        public float GeneralVolume = 1;
+
         [Tooltip("Camera the rain should hover over, defaults to main camera")]
         public Camera Camera;
 
@@ -165,7 +169,7 @@ namespace DigitalRuby.RainMaker
                             audioSourceRainCurrent.Stop();
                         }
                         audioSourceRainCurrent = newSource;
-                        audioSourceRainCurrent.Play(1.0f);
+                        audioSourceRainCurrent.Play(GeneralVolume);
                     }
                     if (RainFallParticleSystem != null)
                     {
