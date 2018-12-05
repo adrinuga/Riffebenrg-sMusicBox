@@ -31,7 +31,9 @@ public class SafeOut : InteractableObject {
             transform.gameObject.SetActive(false);
 
             GameManager.m_instance.m_SafePrevious = transform.root;
-            
+
+            this.gameObject.SetActive(false);
+            m_objectOutline.enabled = false;
         }
 
 	}
