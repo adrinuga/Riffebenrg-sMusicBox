@@ -121,6 +121,7 @@ public class PlayerLookingNav : MonoBehaviour
         m_isMoving = true;
     }
 
+
     IEnumerator RotateObject(float _angles)
     {
         HideMouse();
@@ -137,7 +138,7 @@ public class PlayerLookingNav : MonoBehaviour
             m_actualObject.RotateAround(m_actualObject.position, Vector3.up, Mathf.Sign(_angles) * m_rotSpeed * Time.deltaTime);
             yield return null;
         }
-        m_actualObject.eulerAngles = new Vector3(0, l_originalRot + _angles, 0);
+        m_actualObject.eulerAngles = new Vector3(m_actualObject.eulerAngles.x, l_originalRot + _angles, m_actualObject.eulerAngles.z);
 
         m_isMoving = false;
         m_UIObject.gameObject.SetActive(true);
