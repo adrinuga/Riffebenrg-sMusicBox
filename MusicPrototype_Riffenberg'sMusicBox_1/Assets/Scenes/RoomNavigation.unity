@@ -3069,7 +3069,7 @@ MonoBehaviour:
   m_melodyPuzzle: 0
   m_rythmPuzzle: 0
   m_harmonyPuzzle: 0
-  m_finalAvaliable: 1
+  m_finalAvaliable: 0
   m_puzzleCompletedM: 0
   m_puzzleCompletedH: 0
   m_puzzleCompletedR: 0
