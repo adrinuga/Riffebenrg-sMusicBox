@@ -5463,6 +5463,29 @@ Prefab:
       propertyPath: m_returnBarsEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 82893142556155964, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8dc3fe4eef9316a459e660ed76eb3473, type: 3}
+    - target: {fileID: 82075207978911962, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d80e41f4643d46642a1fc30b7fb12c41, type: 3}
+    - target: {fileID: 82953197614703574, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d23c65f51bd0aca4fbc464cb76525997, type: 3}
+    - target: {fileID: 4548640060079974, guid: 43d1d90a6e845bc479b802340caec9d3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.2146
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066350174583842, guid: 43d1d90a6e845bc479b802340caec9d3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.089
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d1d90a6e845bc479b802340caec9d3, type: 2}
   m_IsPrefabAsset: 0
