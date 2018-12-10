@@ -5720,6 +5720,11 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 0.089
       objectReference: {fileID: 0}
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_timeBetweenBarAnims
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d1d90a6e845bc479b802340caec9d3, type: 2}
   m_IsPrefabAsset: 0

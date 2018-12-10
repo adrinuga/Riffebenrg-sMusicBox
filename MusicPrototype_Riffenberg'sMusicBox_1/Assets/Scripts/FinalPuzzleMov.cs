@@ -131,13 +131,15 @@ public class FinalPuzzleMov : MonoBehaviour
         }
         //if each animation is done
 
-        yield return new WaitForSeconds (m_timeBetweenBarAnims);
+       
 
         
 
         if (_open)
         {
             //play box animation success and open
+
+            yield return new WaitForSeconds(m_timeBetweenBarAnims);
 
             m_succesEvent.Invoke();
         }
