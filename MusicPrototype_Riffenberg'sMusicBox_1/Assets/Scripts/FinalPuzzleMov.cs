@@ -12,7 +12,7 @@ public class FinalPuzzleMov : MonoBehaviour
 
     private RingScript m_actualRing;
     [SerializeField] private float m_timeBetweenBarAnims;
-    [SerializeField] private UnityEvent m_waitBarsEvent, m_returnBarsEvent;
+    [SerializeField] private UnityEvent m_waitBarsEvent, m_returnBarsEvent, m_succesEvent;
 
     void Start()
     {
@@ -76,6 +76,8 @@ public class FinalPuzzleMov : MonoBehaviour
         {
             if(ring.m_ringAudioIndex == 0)
             {
+                l_ringsRightCount = 0;
+
                 break;
                 
             }
@@ -107,6 +109,8 @@ public class FinalPuzzleMov : MonoBehaviour
     }
     IEnumerator AnimAfterBars(bool _open, List <RingScript> _animatedRings)
     {
+        m_waitBarsEvent.Invoke();
+
         bool l_allRingsStopped = false;
 
         while (!l_allRingsStopped)
@@ -129,9 +133,13 @@ public class FinalPuzzleMov : MonoBehaviour
 
         yield return new WaitForSeconds (m_timeBetweenBarAnims);
 
+        
+
         if (_open)
         {
             //play box animation success and open
+
+            m_succesEvent.Invoke();
         }
         else
         {
@@ -141,6 +149,8 @@ public class FinalPuzzleMov : MonoBehaviour
                 {
                     ring.m_ringBarAnim.clip = ring.m_barAnimationClose;
                     ring.m_ringBarAnim.Play();
+
+                    m_returnBarsEvent.Invoke();
                 }
             }
             //play bars back to original 

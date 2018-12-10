@@ -4892,6 +4892,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_waitBarsEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_returnBarsEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4902022910781332, guid: 43d1d90a6e845bc479b802340caec9d3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 8
@@ -5041,6 +5051,61 @@ Prefab:
         type: 2}
       propertyPath: m_finalCombination.Array.data[2]
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114759867499700248, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: outlineWidth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_waitBarsEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_waitBarsEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_waitBarsEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 487720248}
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_waitBarsEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideMouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_waitBarsEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_returnBarsEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_returnBarsEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_returnBarsEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 487720248}
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_returnBarsEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowMouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_returnBarsEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d1d90a6e845bc479b802340caec9d3, type: 2}
