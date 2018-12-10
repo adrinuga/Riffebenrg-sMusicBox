@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FinalPuzzleMov : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class FinalPuzzleMov : MonoBehaviour
     [HideInInspector] public bool m_canAct = true;
 
     private RingScript m_actualRing;
+    [SerializeField] private float m_timeBetweenBarAnims;
+    [SerializeField] private UnityEvent m_waitBarsEvent, m_returnBarsEvent;
 
     void Start()
     {
@@ -67,6 +70,8 @@ public class FinalPuzzleMov : MonoBehaviour
     }
     public void CheckFinalCombination()
     {
+        int l_ringsRightCount = 0;
+        List<RingScript> l_correctRings = new List<RingScript>();
         foreach(RingScript ring in m_ringList)
         {
             if(ring.m_ringAudioIndex == 0)
@@ -78,11 +83,69 @@ public class FinalPuzzleMov : MonoBehaviour
             {
                 if (ring.m_ringAudioIndex == m_finalCombination[m_ringList.IndexOf(ring)])
                 {
+                    ring.m_ringBarAnim.clip = ring.m_barAnimationOpen;
+                    ring.m_ringBarAnim.Play();
+                    l_ringsRightCount++;
+                    l_correctRings.Add(ring);
                 }
             }
             
 
         }
+        bool l_open = false;
+        if (l_ringsRightCount >= m_ringList.Count)
+        {
+            l_open = true;
+        }
+        if (l_ringsRightCount > 0)
+        {
+            StartCoroutine(AnimAfterBars(l_open, l_correctRings));
+        }
+        
+
+
+    }
+    IEnumerator AnimAfterBars(bool _open, List <RingScript> _animatedRings)
+    {
+        bool l_allRingsStopped = false;
+
+        while (!l_allRingsStopped)
+        {
+            foreach (RingScript ring in _animatedRings)
+            {
+                if (ring.m_ringBarAnim.isPlaying)
+                {
+                    break;
+                }
+                if(_animatedRings[_animatedRings.Count-1] == ring)
+                {
+                    l_allRingsStopped = true;
+                }
+
+            }
+            yield return null;
+        }
+        //if each animation is done
+
+        yield return new WaitForSeconds (m_timeBetweenBarAnims);
+
+        if (_open)
+        {
+            //play box animation success and open
+        }
+        else
+        {
+            if(_animatedRings.Count > 0)
+            {
+                foreach(RingScript ring in _animatedRings)
+                {
+                    ring.m_ringBarAnim.clip = ring.m_barAnimationClose;
+                    ring.m_ringBarAnim.Play();
+                }
+            }
+            //play bars back to original 
+        }
+
 
     }
     public void MuteAllRingsSources()

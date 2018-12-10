@@ -10,6 +10,11 @@ public class RingScript : MonoBehaviour
     public AudioSource m_actualSource;
     [SerializeField] private float m_rotSpeed = 60.0f;
 
+    public Animation m_ringBarAnim;
+    public AnimationClip 
+        m_barAnimationOpen,
+        m_barAnimationClose;
+
     public void EnableRing() 
     {
         m_ringOutline.enabled = true;
