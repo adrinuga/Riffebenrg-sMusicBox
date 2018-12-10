@@ -6,13 +6,15 @@ using UnityEngine.Events;
 public class SafeOut : InteractableObject {
 
     [SerializeField] Transform m_puzzlesInside;
-
+    [SerializeField] UnityEvent m_OpenBoxEvent;
     [SerializeField] private Outline m_objectOutline;
     [SerializeField] private Animation m_objectAnimation;
     [SerializeField]
     private AnimationClip
         m_bringCloseAnimation,
-        m_putDownAnimation;
+        m_putDownAnimation,
+        m_openBoxAnimation
+        ;
 
 
 
@@ -75,5 +77,10 @@ public class SafeOut : InteractableObject {
         transform.gameObject.SetActive(true);
        // m_objectAnimation.clip = m_putDownAnimation;
         m_objectAnimation.CrossFade(m_putDownAnimation.name);
+    }
+    public void OpenBox()
+    {
+        m_objectAnimation.clip = m_openBoxAnimation;
+        m_objectAnimation.Play();
     }
 }
