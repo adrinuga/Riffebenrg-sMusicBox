@@ -8,6 +8,7 @@ public class PuzzleCompleted : InteractableObject {
     [SerializeField] private Outline m_objectOutline;
     [SerializeField] private AudioSource m_PuzzleSolvedAudioSource;
     [SerializeField] private GameManager.PuzzleType m_PuzzleType;
+    [SerializeField] private Light m_Light;
 
 
     // Use this for initialization
@@ -19,18 +20,21 @@ public class PuzzleCompleted : InteractableObject {
                 if(GameManager.m_instance.m_puzzleCompletedM)
                 {
                     GameManager.m_instance.m_interactableObjects.Add(this);
+                    m_Light.enabled = true;
                 }
                 break;
             case GameManager.PuzzleType.puzzleH:
                 if (GameManager.m_instance.m_puzzleCompletedH)
                 {
                     GameManager.m_instance.m_interactableObjects.Add(this);
+                    m_Light.enabled = true;
                 }
                 break;
             case GameManager.PuzzleType.puzzleR:
                 if (GameManager.m_instance.m_puzzleCompletedR)
                 {
                     GameManager.m_instance.m_interactableObjects.Add(this);
+                    m_Light.enabled = true;
                 }
                 break;
 
