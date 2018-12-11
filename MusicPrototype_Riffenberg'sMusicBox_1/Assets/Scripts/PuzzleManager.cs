@@ -227,7 +227,10 @@ public class PuzzleManager : MonoBehaviour {
 
     public void ActivateScene()
     {
-        StartCoroutine(ChangeScene());
+        if(m_async!= null)
+        {
+            StartCoroutine(ChangeScene());
+        }
     }
 
     IEnumerator PlayAfterFade()
@@ -240,6 +243,8 @@ public class PuzzleManager : MonoBehaviour {
 
     IEnumerator LoadScene()
     {
+        yield return new WaitForSeconds(4f);
+
         m_async = SceneManager.LoadSceneAsync(m_sceneToChange);
         m_async.allowSceneActivation = false;
         yield return null;
