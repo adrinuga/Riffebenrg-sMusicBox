@@ -283,7 +283,10 @@ public class PuzzleManager : MonoBehaviour {
 
     private void CompletePuzzle()
     {
-        m_Sliders[0].interactable = false;
+        if (m_PuzzleType == GameManager.PuzzleType.puzzleH)
+        {
+            m_Sliders[0].interactable = false;
+        }
         GameManager.m_instance.AddCompletedPuzzle(m_PuzzleType);
         if (m_FinalAudio != null && !m_PlayingFinalAudio)
         {
