@@ -27,9 +27,6 @@ public class ChangeToPuzzle : InteractableObject {
 
         if (GameManager.m_instance.m_beforeSceneInfo.m_lastIndexScene != 0)
         {
-
-
-
             switch(m_sceneChangeType)
             {
             case (GameManager.PuzzleType.puzzleM):
@@ -64,6 +61,10 @@ public class ChangeToPuzzle : InteractableObject {
         if(!m_completed)
         {
             GameManager.m_instance.m_interactableObjects.Add(this);
+        }
+        else
+        {
+            Destroy(this);
         }
     }
     // Update is called once per frame
