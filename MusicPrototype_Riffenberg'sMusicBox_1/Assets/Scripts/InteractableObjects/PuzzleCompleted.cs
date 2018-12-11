@@ -50,7 +50,7 @@ public class PuzzleCompleted : InteractableObject {
     }
     public override void OnClick()
     {
-        if (!GameManager.m_instance.m_playerNav.m_BoxOn) //BUGGED??
+        if (!GameManager.m_instance.m_playerNav.m_BoxOn)
         {
             if(!m_PuzzleSolvedAudioSource.isPlaying)
             {
@@ -66,10 +66,7 @@ public class PuzzleCompleted : InteractableObject {
     }
     public override void MouseOver()
     {
-        if (!GameManager.m_instance.m_playerNav.m_BoxOn)
-        {
-            m_objectOutline.enabled = true;
-        }
+        m_objectOutline.enabled = true;
 
     }
     public override Transform ReturnObject()
