@@ -85,8 +85,9 @@ public class PuzzleManager : MonoBehaviour {
                 {
                     m_CurrentSimonSaysVisited[i] = false;
                 }
-                m_AudioSource.Play();
-                m_IntroAnimation.Play();
+                //m_AudioSource.Play();
+                //m_IntroAnimation.Play();
+                StartCoroutine(PlayAfterFade());
                 break;
         }
 
@@ -227,6 +228,14 @@ public class PuzzleManager : MonoBehaviour {
     public void ActivateScene()
     {
         StartCoroutine(ChangeScene());
+    }
+
+    IEnumerator PlayAfterFade()
+    {
+        yield return new WaitUntil(() => m_FadeImage.color.a == 0);
+        m_AudioSource.Play();
+        m_IntroAnimation.Play();
+
     }
 
     IEnumerator LoadScene()

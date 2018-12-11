@@ -6704,6 +6704,7 @@ MonoBehaviour:
   m_AudioMixer: {fileID: 24100000, guid: 985337741df7f29479f9120e5eda7fd0, type: 2}
   m_Sliders:
   - {fileID: 510058267}
+  m_Completed: 0
   m_BallRythm: {fileID: 0}
   SimonSaysTransforms: []
   SimonSaysAudioSources: []
@@ -9637,14 +9638,14 @@ RectTransform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1783958633}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 997582183}
   m_Father: {fileID: 1364597245}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -732, y: 234}
