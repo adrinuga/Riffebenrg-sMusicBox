@@ -193,6 +193,10 @@ public class PlayerLookingNav : MonoBehaviour
         m_isMoving = false;
 
     }
-   
+
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
 
 }
