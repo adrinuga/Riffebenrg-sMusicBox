@@ -1167,7 +1167,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: bf29e6f8c805ddf4c9603a011800c366, type: 2}
+  - {fileID: 2100000, guid: ac34a8f71da0a0447824c6f9d72a54de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4565,12 +4565,13 @@ MonoBehaviour:
   m_LastPosition: {fileID: 1305343514}
   m_AudioMixer: {fileID: 0}
   m_Sliders: []
+  m_Completed: 0
   m_BallRythm: {fileID: 216551814}
   SimonSaysTransforms: []
   SimonSaysAudioSources: []
-  m_AudioSource: {fileID: 0}
-  m_FinalAudioSource: {fileID: 0}
-  m_FinalAudio: {fileID: 0}
+  m_AudioSource: {fileID: 1301570190}
+  m_FinalAudioSource: {fileID: 1301570190}
+  m_FinalAudio: {fileID: 8300000, guid: d80e41f4643d46642a1fc30b7fb12c41, type: 3}
   m_IntroAnimation: {fileID: 0}
   m_sceneToChange: 0
   m_FadeImage: {fileID: 1399503726}
