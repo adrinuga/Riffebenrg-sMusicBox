@@ -3333,7 +3333,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1812579709661902}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
@@ -3412,6 +3412,22 @@ MonoBehaviour:
   - {fileID: 114787636710573952}
   m_finalCombination: 020000000100000003000000
   m_canAct: 1
+  m_timeBetweenBarAnims: 0
+  m_waitBarsEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_returnBarsEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_succesEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114170774114935208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3443,6 +3459,7 @@ MonoBehaviour:
   m_objectOutline: {fileID: 114893647265765304}
   m_PuzzleSolvedAudioSource: {fileID: 82893142556155964}
   m_PuzzleType: 0
+  m_Light: {fileID: 0}
 --- !u!114 &114297074846293904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3455,11 +3472,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_puzzlesInside: {fileID: 4633406363902916}
+  m_OpenBoxEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   m_objectOutline: {fileID: 114030441780053636}
   m_objectAnimation: {fileID: 111560585712157110}
   m_bringCloseAnimation: {fileID: 7400000, guid: 3731223af5b13e64ebc99e97b245d620,
     type: 2}
   m_putDownAnimation: {fileID: 7400000, guid: 1b16a7e20d34d4241860228d1b3ad25e, type: 2}
+  m_openBoxAnimation: {fileID: 0}
 --- !u!114 &114383068670575038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3497,6 +3520,9 @@ MonoBehaviour:
   - {fileID: 82771348811071014}
   m_actualSource: {fileID: 0}
   m_rotSpeed: 120
+  m_ringBarAnim: {fileID: 0}
+  m_barAnimationOpen: {fileID: 0}
+  m_barAnimationClose: {fileID: 0}
 --- !u!114 &114414699739731362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3582,6 +3608,7 @@ MonoBehaviour:
   m_objectOutline: {fileID: 114170774114935208}
   m_PuzzleSolvedAudioSource: {fileID: 82953197614703574}
   m_PuzzleType: 1
+  m_Light: {fileID: 0}
 --- !u!114 &114645178968237494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3652,6 +3679,9 @@ MonoBehaviour:
   - {fileID: 82855309429342670}
   m_actualSource: {fileID: 0}
   m_rotSpeed: 120
+  m_ringBarAnim: {fileID: 0}
+  m_barAnimationOpen: {fileID: 0}
+  m_barAnimationClose: {fileID: 0}
 --- !u!114 &114706956807648744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3734,6 +3764,9 @@ MonoBehaviour:
   - {fileID: 82417623070536470}
   m_actualSource: {fileID: 0}
   m_rotSpeed: 120
+  m_ringBarAnim: {fileID: 0}
+  m_barAnimationOpen: {fileID: 0}
+  m_barAnimationClose: {fileID: 0}
 --- !u!114 &114852005233866862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3748,6 +3781,7 @@ MonoBehaviour:
   m_objectOutline: {fileID: 114993878980051440}
   m_PuzzleSolvedAudioSource: {fileID: 82075207978911962}
   m_PuzzleType: 2
+  m_Light: {fileID: 0}
 --- !u!114 &114890692099889642
 MonoBehaviour:
   m_ObjectHideFlags: 1
