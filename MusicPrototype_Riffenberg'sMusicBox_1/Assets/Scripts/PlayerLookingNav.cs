@@ -120,7 +120,10 @@ public class PlayerLookingNav : MonoBehaviour
 
         m_isMoving = true;
     }
-
+    public void LeaveObject()
+    {
+        m_BoxOn = false;
+    }
 
     IEnumerator RotateObject(float _angles)
     {
