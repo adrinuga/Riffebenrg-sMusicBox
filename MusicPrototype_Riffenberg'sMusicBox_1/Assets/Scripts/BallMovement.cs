@@ -27,22 +27,25 @@ public class BallMovement : MonoBehaviour {
 
     void Update()
     {
-        m_CurrentNode = m_GameGrid.GetNodeContainingPosition(transform.position);
-
-        if (transform.position == m_NextPosition && m_CanMove)
+        if (!PuzzleManager.m_instance.m_Completed)
         {
-            GetInput();
-            Move();
+            m_CurrentNode = m_GameGrid.GetNodeContainingPosition(transform.position);
 
-            CheckPreviousNode();
-            SetPreviousNode();
-        }
-        transform.position = Vector3.MoveTowards(transform.position, m_NextPosition, m_Speed * Time.deltaTime);
+            if (transform.position == m_NextPosition && m_CanMove)
+            {
+                GetInput();
+                Move();
 
-        if(!m_CurrentNode.isTransitable)
-        {
-            print("Reset");
-            PuzzleManager.m_instance.ResetPlayerPosition();
+                CheckPreviousNode();
+                SetPreviousNode();
+            }
+            transform.position = Vector3.MoveTowards(transform.position, m_NextPosition, m_Speed * Time.deltaTime);
+
+            if (!m_CurrentNode.isTransitable)
+            {
+                print("Reset");
+                PuzzleManager.m_instance.ResetPlayerPosition();
+            }
         }
     }
 

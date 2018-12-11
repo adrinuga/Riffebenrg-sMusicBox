@@ -26,7 +26,7 @@ public class PuzzleManager : MonoBehaviour {
 
     private Node m_LastNode;
 
-    private bool m_Completed = false;
+    public bool m_Completed = false;
 
 
     //RythmPuzzle
@@ -96,110 +96,109 @@ public class PuzzleManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		switch(m_PuzzleType)
+        if (!m_Completed)
         {
-            case GameManager.PuzzleType.puzzleR:
-                if (m_BallRythm.m_CurrentNode == m_LastNode)
-                {
-                    //Puzzle finished
-                    m_Completed = true;
-                    CompletePuzzle();
-                    //ActivateScene();
-
-                }
-                break;
-
-            case GameManager.PuzzleType.puzzleH:
-
-                //Update the music effects
-                for (int i = 0; i < m_Sliders.Length; i++)
-                {
-                    m_AudioMixer.SetFloat("EQ" + i, m_Sliders[i].value);
-
-                }
-
-
-
-                if (m_Ball.transform.position == m_LastNode.worldPosition)
-                {
-                    //Puzzle finished
-                    m_Completed = true;
-                    CompletePuzzle();
-                    //ActivateScene();
-                }
-                break;
-
-            case GameManager.PuzzleType.puzzleM:
-
-                if(m_Ball.m_CurrentNode.isSimonSays)
-                {
-                    for (int i = 0; i < SimonSaysTransforms.Length; i++)
+            switch (m_PuzzleType)
+            {
+                case GameManager.PuzzleType.puzzleR:
+                    if (m_BallRythm.m_CurrentNode == m_LastNode)
                     {
-                        if (m_Grid.GetNodeContainingPosition(SimonSaysTransforms[i].position) == m_Ball.m_CurrentNode)
+                        //Puzzle finished
+                        m_Completed = true;
+                        CompletePuzzle();
+                        //ActivateScene();
+
+                    }
+                    break;
+
+                case GameManager.PuzzleType.puzzleH:
+
+                    //Update the music effects
+                    for (int i = 0; i < m_Sliders.Length; i++)
+                    {
+                        m_AudioMixer.SetFloat("EQ" + i, m_Sliders[i].value);
+
+                    }
+
+
+
+                    if (m_Ball.transform.position == m_LastNode.worldPosition)
+                    {
+                        //Puzzle finished
+                        m_Completed = true;
+                        CompletePuzzle();
+                        //ActivateScene();
+                    }
+                    break;
+
+                case GameManager.PuzzleType.puzzleM:
+
+                    if (m_Ball.m_CurrentNode.isSimonSays)
+                    {
+                        for (int i = 0; i < SimonSaysTransforms.Length; i++)
                         {
-                            if(i > 0)
+                            if (m_Grid.GetNodeContainingPosition(SimonSaysTransforms[i].position) == m_Ball.m_CurrentNode)
                             {
-                                if (m_CurrentSimonSaysVisited[i - 1])
+                                if (i > 0)
+                                {
+                                    if (m_CurrentSimonSaysVisited[i - 1])
+                                    {
+                                        if (!SimonSaysAudioSources[i].isPlaying && !m_CurrentSimonSaysVisited[i])
+                                        {
+                                            SimonSaysAudioSources[i].Play();
+                                            if (m_AudioSource.isPlaying)
+                                            {
+                                                m_AudioSource.Stop();
+                                                //m_IntroAnimation.Stop();
+                                            }
+
+                                        }
+
+                                        m_CurrentSimonSaysVisited[i] = true;
+
+                                    }
+                                    else
+                                    {
+                                        ResetPlayerPosition();
+                                    }
+                                }
+                                else if (i == 0)
                                 {
                                     if (!SimonSaysAudioSources[i].isPlaying && !m_CurrentSimonSaysVisited[i])
                                     {
                                         SimonSaysAudioSources[i].Play();
-                                        if(m_AudioSource.isPlaying)
+                                        if (m_AudioSource.isPlaying)
                                         {
                                             m_AudioSource.Stop();
                                             //m_IntroAnimation.Stop();
-
                                         }
-
                                     }
 
                                     m_CurrentSimonSaysVisited[i] = true;
-
                                 }
-                                else
-                                {
-                                    ResetPlayerPosition();
-                                }
-                            }
-                            else if(i == 0)
-                            {
-                                if (!SimonSaysAudioSources[i].isPlaying && !m_CurrentSimonSaysVisited[i])
-                                {
-                                    SimonSaysAudioSources[i].Play();
-                                    if (m_AudioSource.isPlaying)
-                                    {
-                                        m_AudioSource.Stop();
-                                        //m_IntroAnimation.Stop();
-
-
-                                    }
-                                }
-
-                                m_CurrentSimonSaysVisited[i] = true;
                             }
                         }
                     }
-                }
 
-                int l_SimonSaysVisitedNodes = 0;
-                for (int i = 0; i < SimonSaysTransforms.Length; i++)
-                {
-                    if (m_Grid.GetNodeContainingPosition(SimonSaysTransforms[i].position).hasBeenVisited)
+                    int l_SimonSaysVisitedNodes = 0;
+                    for (int i = 0; i < SimonSaysTransforms.Length; i++)
                     {
-                        l_SimonSaysVisitedNodes++;
+                        if (m_Grid.GetNodeContainingPosition(SimonSaysTransforms[i].position).hasBeenVisited)
+                        {
+                            l_SimonSaysVisitedNodes++;
+                        }
+
                     }
-
-                }
-                if (l_SimonSaysVisitedNodes == SimonSaysTransforms.Length - 1 && m_Ball.transform.position == m_Grid.GetNodeContainingPosition(SimonSaysTransforms[SimonSaysTransforms.Length - 1].position).worldPosition)
-                {
-                    //Puzzle finished
-                    m_Completed = true;
-                    CompletePuzzle();
-                    //ActivateScene();
-                }
-                break;
+                    if (l_SimonSaysVisitedNodes == SimonSaysTransforms.Length - 1 && m_Ball.transform.position == m_Grid.GetNodeContainingPosition(SimonSaysTransforms[SimonSaysTransforms.Length - 1].position).worldPosition)
+                    {
+                        //Puzzle finished
+                        m_Completed = true;
+                        CompletePuzzle();
+                        //ActivateScene();
+                    }
+                    break;
+            }
         }
-
 
 	}
 
@@ -275,6 +274,7 @@ public class PuzzleManager : MonoBehaviour {
 
     private void CompletePuzzle()
     {
+        m_Sliders[0].interactable = false;
         GameManager.m_instance.AddCompletedPuzzle(m_PuzzleType);
         if (m_FinalAudio != null && !m_PlayingFinalAudio)
         {
