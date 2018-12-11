@@ -298,6 +298,9 @@ public class PuzzleManager : MonoBehaviour {
             if(m_AudioMixer != null)
             m_AudioMixer.ClearFloat("EQ" + 0);
 
+            if (m_AudioSource.mute)
+                m_AudioSource.mute = false;
+
             m_AudioSource.clip = m_FinalAudio;
             m_AudioSource.Play();
             m_PlayingFinalAudio = true;
