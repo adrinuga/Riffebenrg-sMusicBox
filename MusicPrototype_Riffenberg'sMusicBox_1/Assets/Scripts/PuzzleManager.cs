@@ -36,9 +36,11 @@ public class PuzzleManager : MonoBehaviour {
     [SerializeField] private Transform[] SimonSaysTransforms;
     [SerializeField] private AudioSource[] SimonSaysAudioSources;
     [SerializeField] private AudioSource m_AudioSource;
+    [SerializeField] private AudioSource m_FinalAudioSource;
     [SerializeField] private AudioClip m_FinalAudio;
     [SerializeField] private Animation m_IntroAnimation;
     private bool[] m_CurrentSimonSaysVisited;
+    private bool m_PlayingFinalAudio;
 
 
     //Change Scene
@@ -101,7 +103,8 @@ public class PuzzleManager : MonoBehaviour {
                 {
                     //Puzzle finished
                     m_Completed = true;
-                    ActivateScene();
+                    CompletePuzzle();
+                    //ActivateScene();
 
                 }
                 break;
@@ -121,7 +124,8 @@ public class PuzzleManager : MonoBehaviour {
                 {
                     //Puzzle finished
                     m_Completed = true;
-                    ActivateScene();
+                    CompletePuzzle();
+                    //ActivateScene();
                 }
                 break;
 
@@ -190,7 +194,8 @@ public class PuzzleManager : MonoBehaviour {
                 {
                     //Puzzle finished
                     m_Completed = true;
-                    ActivateScene();
+                    CompletePuzzle();
+                    //ActivateScene();
                 }
                 break;
         }
@@ -243,23 +248,40 @@ public class PuzzleManager : MonoBehaviour {
         }
         if(m_Completed)
         {
-            GameManager.m_instance.AddCompletedPuzzle(m_PuzzleType);
-            if(m_FinalAudio != null)
+            /*GameManager.m_instance.AddCompletedPuzzle(m_PuzzleType);
+            if(m_FinalAudio != null && !m_PlayingFinalAudio)
             {
+                //m_AudioMixer.
+                Debug.Log("Final not null");
                 m_AudioSource.clip = m_FinalAudio;
                 m_AudioSource.Play();
-            }
+                m_PlayingFinalAudio = true;
+            }*/
         }
         if (m_FinalAudio != null)
         {
             while (m_AudioSource.isPlaying)
             {
+                //Debug.Log("Playing");
                 yield return null;
             }
         }
+        //m_PlayingFinalAudio = false;
         GameManager.m_instance.ResetLists();
         Debug.Log("Changed to scene: " + m_sceneToChange);
         m_async.allowSceneActivation = true;
 
+    }
+
+    private void CompletePuzzle()
+    {
+        GameManager.m_instance.AddCompletedPuzzle(m_PuzzleType);
+        if (m_FinalAudio != null && !m_PlayingFinalAudio)
+        {
+            m_AudioMixer.ClearFloat("EQ" + 0);
+            m_AudioSource.clip = m_FinalAudio;
+            m_AudioSource.Play();
+            m_PlayingFinalAudio = true;
+        }
     }
 }
