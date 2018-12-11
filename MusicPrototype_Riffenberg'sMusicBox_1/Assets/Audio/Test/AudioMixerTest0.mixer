@@ -15,10 +15,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: f6f2aff33fec79744ae52745e3201eee
+  - guid: 99c6cf0b489670448a0ba01f43a0db4f
     name: EQ0
-  - guid: 84baa5f8fd0280b4fa77ede67ecd1c43
-    name: EQ1
   m_AudioMixerGroupViews:
   - guids:
     - b9459fe130567d144a759d23f4ef1a45
@@ -38,8 +36,8 @@ AudioMixerGroupController:
   m_Pitch: 95f344fa03d62ec458109c3ef7ef6d8c
   m_Effects:
   - {fileID: 24400004}
+  - {fileID: 244535536845768818}
   - {fileID: 244478662178893162}
-  - {fileID: 244561884192674196}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -80,6 +78,7 @@ AudioMixerSnapshotController:
     84baa5f8fd0280b4fa77ede67ecd1c43: 1
     9f4a44690301c6344acfba35c781e7ff: 0.05
     95f344fa03d62ec458109c3ef7ef6d8c: 1
+    99c6cf0b489670448a0ba01f43a0db4f: 1.262
     f7df499df9520394786daef4010d1e4a: 5
     cc8324eeff7a0a14bb501ad24246526c: 50
     33f6ba4fc28bada49ae1a35f0de98bf0: 5
@@ -103,22 +102,24 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
---- !u!244 &244561884192674196
+--- !u!244 &244535536845768818
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_EffectID: f1b8b7bc5d87649478f195e6329f617d
-  m_EffectName: ParamEQ
-  m_MixLevel: 743877ea45e89464583009fbf8c790b6
+  m_EffectID: 5b06c600d49a0a247bef092c4528006f
+  m_EffectName: Pitch Shifter
+  m_MixLevel: a1880067118ad36478e3f5d6caecacae
   m_Parameters:
-  - m_ParameterName: Center freq
-    m_GUID: cc8324eeff7a0a14bb501ad24246526c
-  - m_ParameterName: Octave range
-    m_GUID: 3bbabc28f91d9bb439c9be9940eb50e4
-  - m_ParameterName: Frequency gain
-    m_GUID: 84baa5f8fd0280b4fa77ede67ecd1c43
+  - m_ParameterName: Pitch
+    m_GUID: 99c6cf0b489670448a0ba01f43a0db4f
+  - m_ParameterName: FFT size
+    m_GUID: 97aacfa46d29de2418a4441231f21dba
+  - m_ParameterName: Overlap
+    m_GUID: 1520ba94cd502294b9c7b9855fc2267e
+  - m_ParameterName: Max channels
+    m_GUID: 2018b466d834e9c4390061500ca88127
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
