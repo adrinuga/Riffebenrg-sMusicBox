@@ -404,7 +404,7 @@ Light:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 32242172}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -2397,7 +2397,7 @@ Light:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 815140957}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0.93442965, a: 1}
@@ -4674,7 +4674,7 @@ Light:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1964858538}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 0.37311292, g: 1, b: 0, a: 1}
@@ -4962,6 +4962,10 @@ Prefab:
     - target: {fileID: 4961232079321410, guid: 2cccbf0b62554124b87c610b50484607, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948432992726590, guid: 2cccbf0b62554124b87c610b50484607, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cccbf0b62554124b87c610b50484607, type: 2}
@@ -5711,6 +5715,21 @@ Prefab:
       propertyPath: outlineColor.r
       value: 0.8039216
       objectReference: {fileID: 0}
+    - target: {fileID: 114852005233866862, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_Light
+      value: 
+      objectReference: {fileID: 32242174}
+    - target: {fileID: 114511506591066290, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_Light
+      value: 
+      objectReference: {fileID: 1964858540}
+    - target: {fileID: 114228419148810070, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_Light
+      value: 
+      objectReference: {fileID: 815140959}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d1d90a6e845bc479b802340caec9d3, type: 2}
   m_IsPrefabAsset: 0
