@@ -17,7 +17,7 @@ public class PlayerLookingNav : MonoBehaviour
     private Vector3 m_originalObjectPos, m_targetObjectPos;
     private Quaternion m_originalObjectRot;
 
-    [HideInInspector]
+    
     public bool
         m_isMoving = false,
         m_BoxOn = false;
@@ -122,6 +122,7 @@ public class PlayerLookingNav : MonoBehaviour
     }
     public void LeaveObject()
     {
+        m_isMoving = false;
         m_BoxOn = false;
     }
 

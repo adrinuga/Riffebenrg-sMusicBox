@@ -3546,7 +3546,7 @@ MonoBehaviour:
   m_melodyPuzzle: 0
   m_rythmPuzzle: 0
   m_harmonyPuzzle: 0
-  m_finalAvaliable: 1
+  m_finalAvaliable: 0
   m_puzzleCompletedM: 0
   m_puzzleCompletedH: 0
   m_puzzleCompletedR: 0
@@ -5327,7 +5327,7 @@ Prefab:
     - target: {fileID: 114645178968237494, guid: 43d1d90a6e845bc479b802340caec9d3,
         type: 2}
       propertyPath: m_event.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114074824423098172, guid: 43d1d90a6e845bc479b802340caec9d3,
         type: 2}
@@ -5420,7 +5420,7 @@ Prefab:
         type: 2}
       propertyPath: m_event.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 487720248}
+      objectReference: {fileID: 971987503}
     - target: {fileID: 114065053922568154, guid: 43d1d90a6e845bc479b802340caec9d3,
         type: 2}
       propertyPath: m_event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5772,7 +5772,7 @@ Prefab:
     - target: {fileID: 114645178968237494, guid: 43d1d90a6e845bc479b802340caec9d3,
         type: 2}
       propertyPath: m_event.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: set_enabled
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 114645178968237494, guid: 43d1d90a6e845bc479b802340caec9d3,
         type: 2}
@@ -6008,6 +6008,11 @@ Prefab:
         type: 2}
       propertyPath: m_succesEvent.m_PersistentCalls.m_Calls.Array.data[7].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114645178968237494, guid: 43d1d90a6e845bc479b802340caec9d3,
+        type: 2}
+      propertyPath: m_event.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d1d90a6e845bc479b802340caec9d3, type: 2}
