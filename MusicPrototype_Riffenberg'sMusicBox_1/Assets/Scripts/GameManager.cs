@@ -123,4 +123,9 @@ public class GameManager : MonoBehaviour
         m_interactableObjects = new List<InteractableObject>();
     }
 
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
+
 }
