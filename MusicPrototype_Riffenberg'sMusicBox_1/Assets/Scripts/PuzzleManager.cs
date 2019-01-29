@@ -205,6 +205,7 @@ public class PuzzleManager : MonoBehaviour {
 
     public void ResetPlayerPosition()
     {
+        Debug.Log("Reset position");
         if(m_PuzzleType == GameManager.PuzzleType.puzzleM)
         {
             for (int j = 0; j < SimonSaysTransforms.Length; j++)
@@ -303,6 +304,7 @@ public class PuzzleManager : MonoBehaviour {
 
             m_AudioSource.clip = m_FinalAudio;
             m_AudioSource.Play();
+            m_AudioSource.loop = true;
             m_PlayingFinalAudio = true;
         }
     }
