@@ -85,8 +85,8 @@ public class FinalPuzzleMov : MonoBehaviour
             {
                 if (ring.m_ringAudioIndex == m_finalCombination[m_ringList.IndexOf(ring)])
                 {
-                    ring.m_ringBarAnim.clip = ring.m_barAnimationOpen;
-                    ring.m_ringBarAnim.Play();
+                    //ring.m_ringBarAnim.clip = ring.m_barAnimationOpen;
+                    //ring.m_ringBarAnim.Play();
                     l_ringsRightCount++;
                     l_correctRings.Add(ring);
                 }
@@ -98,10 +98,24 @@ public class FinalPuzzleMov : MonoBehaviour
         if (l_ringsRightCount >= m_ringList.Count)
         {
             l_open = true;
+            foreach(RingScript ring in m_ringList)
+            {
+                ring.m_ringBarAnim.clip = ring.m_barAnimationOpen;
+                ring.m_ringBarAnim.Play();
+            }
+
+        }
+        else if(l_ringsRightCount > 0)
+        {
+            foreach (RingScript ring in m_ringList)
+            {
+                ring.m_ringBarAnim.clip = ring.m_barAnimationClose;
+                ring.m_ringBarAnim.Play();
+            }
         }
         if (l_ringsRightCount > 0)
         {
-            StartCoroutine(AnimAfterBars(l_open, l_correctRings));
+            StartCoroutine(AnimAfterBars(l_open, m_ringList));
         }
         
 
@@ -149,8 +163,8 @@ public class FinalPuzzleMov : MonoBehaviour
             {
                 foreach(RingScript ring in _animatedRings)
                 {
-                    ring.m_ringBarAnim.clip = ring.m_barAnimationClose;
-                    ring.m_ringBarAnim.Play();
+                    //ring.m_ringBarAnim.clip = ring.m_barAnimationClose;
+                    //ring.m_ringBarAnim.Play();
 
                     m_returnBarsEvent.Invoke();
                 }
