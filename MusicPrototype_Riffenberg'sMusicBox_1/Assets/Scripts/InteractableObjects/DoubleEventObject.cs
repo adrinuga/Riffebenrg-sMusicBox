@@ -13,6 +13,11 @@ public class DoubleEventObject : InteractableObject {
 
     [SerializeField] private AudioSource m_effectSource;
 
+    [SerializeField] private AudioClip 
+        m_effectOne,
+        m_effectTwo
+        ;
+
     [SerializeField] private Outline m_objectOutline;
     
     
@@ -49,10 +54,21 @@ public class DoubleEventObject : InteractableObject {
             }
 
             if (m_effectSource != null)
+            { 
+                if (m_eventOneTriggered)
+                {
+                    m_effectSource.clip = m_effectOne;
+                }
+                else
+                {
+                    m_effectSource.clip = m_effectTwo;
+                }
                 m_effectSource.Play();
+            }
 
-          
-            
+
+
+
             m_objectOutline.enabled = false;
             
            
