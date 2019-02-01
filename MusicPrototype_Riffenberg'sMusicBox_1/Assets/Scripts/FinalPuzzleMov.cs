@@ -105,7 +105,7 @@ public class FinalPuzzleMov : MonoBehaviour
             }
 
         }
-        else if(l_ringsRightCount > 0)
+        else if( l_ringsRightCount > 0)
         {
             foreach (RingScript ring in m_ringList)
             {

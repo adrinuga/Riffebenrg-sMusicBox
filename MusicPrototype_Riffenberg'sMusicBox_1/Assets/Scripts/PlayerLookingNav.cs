@@ -37,6 +37,14 @@ public class PlayerLookingNav : MonoBehaviour
         m_OutFromFinal
         ;
 
+    [SerializeField] private AudioSource 
+        m_PlayerEffectSource,
+        m_PlayerTouchSource
+        ;
+    [SerializeField] private AudioClip
+    m_TouchNormalClip
+    ;
+
 
 
     // Use this for initialization
@@ -80,10 +88,17 @@ public class PlayerLookingNav : MonoBehaviour
             }
 
             
-            if (Input.GetMouseButtonDown(0) && l_actualInteractable != null)
+            if (Input.GetMouseButtonDown(0))
             {
+                m_PlayerTouchSource.clip = m_TouchNormalClip;
+                m_PlayerTouchSource.Play();
                 //Debug.Log("InteractableClicked");
-                l_actualInteractable.OnClick();
+                if(l_actualInteractable != null)
+                {
+                    l_actualInteractable.OnClick();
+                }
+
+                
 
             }
         }
@@ -197,6 +212,14 @@ public class PlayerLookingNav : MonoBehaviour
     public void CloseGame()
     {
         Application.Quit();
+    }
+
+    public void PlayEffect(AudioClip _effect)
+    {
+
+        m_PlayerEffectSource.clip = _effect;
+
+        m_PlayerEffectSource.Play();
     }
 
 }
