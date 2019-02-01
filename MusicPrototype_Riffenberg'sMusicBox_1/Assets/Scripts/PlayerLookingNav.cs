@@ -81,7 +81,7 @@ public class PlayerLookingNav : MonoBehaviour
                 //Debug.Log("Looking fr object");
                 if(l_RaycastHit.transform.tag == "Interactable")
                 {
-                    Debug.Log("InteractableFound");
+                   // Debug.Log("InteractableFound");
                     l_actualInteractable = GameManager.m_instance.GetInteractableObject(l_RaycastHit.transform);
                     l_actualInteractable.MouseOver();
                 }
