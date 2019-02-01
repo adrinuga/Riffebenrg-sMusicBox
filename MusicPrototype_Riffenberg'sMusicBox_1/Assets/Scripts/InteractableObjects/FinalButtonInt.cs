@@ -46,7 +46,7 @@ public class FinalButtonInt : InteractableObject
        
         if (GameManager.m_instance.m_playerNav.m_BoxOn)
         {
-            Debug.Log("finalb");
+          //  Debug.Log("finalb");
             m_objectOutline.enabled = true;
         }
 

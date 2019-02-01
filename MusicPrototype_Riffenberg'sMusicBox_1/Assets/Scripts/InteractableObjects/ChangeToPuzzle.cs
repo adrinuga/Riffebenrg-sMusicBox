@@ -76,7 +76,7 @@ public class ChangeToPuzzle : InteractableObject {
     {
         if (GameManager.m_instance.m_playerNav.m_BoxOn && !m_completed)
         {
-            Debug.Log("changeScene");
+          //  Debug.Log("changeScene");
 
 
             StartCoroutine(Load());
@@ -89,7 +89,7 @@ public class ChangeToPuzzle : InteractableObject {
         {
 
             m_objectOutline.enabled = true;
-            Debug.Log("outline");
+           // Debug.Log("outline");
 
         }
     }
