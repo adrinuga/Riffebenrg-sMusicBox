@@ -4095,7 +4095,7 @@ MonoBehaviour:
   m_melodyPuzzle: 0
   m_rythmPuzzle: 0
   m_harmonyPuzzle: 0
-  m_finalAvaliable: 1
+  m_finalAvaliable: 0
   m_puzzleCompletedM: 0
   m_puzzleCompletedH: 0
   m_puzzleCompletedR: 0
@@ -7021,6 +7021,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9a2d159b793b8d74681c5da833f77474, type: 2}
+    - target: {fileID: 1907376223209694, guid: 43d1d90a6e845bc479b802340caec9d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d1d90a6e845bc479b802340caec9d3, type: 3}
 --- !u!1 &2135203393 stripped
