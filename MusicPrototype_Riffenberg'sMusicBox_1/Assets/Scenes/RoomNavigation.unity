@@ -1195,7 +1195,7 @@ MonoBehaviour:
         m_MethodName: PlayEffect
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: ac9305e8e0a9bc54cb702facc04c0ebb,
+          m_ObjectArgument: {fileID: 8300000, guid: b6dc18143b1b9d74088fd86839fa9d77,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
