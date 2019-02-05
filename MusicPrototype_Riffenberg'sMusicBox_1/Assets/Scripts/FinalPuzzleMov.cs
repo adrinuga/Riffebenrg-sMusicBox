@@ -14,6 +14,14 @@ public class FinalPuzzleMov : MonoBehaviour
     [SerializeField] private float m_timeBetweenBarAnims;
     [SerializeField] private UnityEvent m_waitBarsEvent, m_returnBarsEvent, m_succesEvent;
 
+    [SerializeField] private AudioSource m_finalSource;
+    [SerializeField]
+    private AudioClip
+        m_tryToOpenClip,
+        m_failToOpenClip,
+        m_succesToOpenClip;
+
+
     void Start()
     {
         GameManager.m_instance.m_finalPuzzle = this;
@@ -125,6 +133,10 @@ public class FinalPuzzleMov : MonoBehaviour
     {
         m_waitBarsEvent.Invoke();
 
+        m_finalSource.clip = m_tryToOpenClip;
+        m_finalSource.Play();
+
+
         bool l_allRingsStopped = false;
 
         while (!l_allRingsStopped)
@@ -151,6 +163,8 @@ public class FinalPuzzleMov : MonoBehaviour
 
         if (_open)
         {
+            m_finalSource.clip = m_succesToOpenClip;
+            m_finalSource.Play();
             //play box animation success and open
 
             yield return new WaitForSeconds(m_timeBetweenBarAnims);
@@ -159,7 +173,10 @@ public class FinalPuzzleMov : MonoBehaviour
         }
         else
         {
-            if(_animatedRings.Count > 0)
+            m_finalSource.clip = m_failToOpenClip;
+            m_finalSource.Play();
+
+            if (_animatedRings.Count > 0)
             {
                 foreach(RingScript ring in _animatedRings)
                 {
