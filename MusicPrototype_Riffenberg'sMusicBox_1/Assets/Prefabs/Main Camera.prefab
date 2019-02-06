@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7702585528700064884}
   - component: {fileID: 114337610702598344}
   - component: {fileID: 1293658827}
-  - component: {fileID: 1293658828}
   - component: {fileID: 1293658829}
+  - component: {fileID: 1293658828}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -283,6 +283,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_PlayerEffectSource: {fileID: 7702585528700064884}
+  m_PlayerTouchSource: {fileID: 0}
+  m_TouchNormalClip: {fileID: 0}
 --- !u!111 &1293658827
 Animation:
   m_ObjectHideFlags: 0
@@ -301,6 +303,23 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1293658829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079059413174734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 38d9676de52f2c84789f260a4a79fd74, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!114 &1293658828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +335,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 4615812838172208}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 279
+    m_Bits: 4294967295
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 1
   antialiasingMode: 0
@@ -361,20 +380,3 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &1293658829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079059413174734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 38d9676de52f2c84789f260a4a79fd74, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
