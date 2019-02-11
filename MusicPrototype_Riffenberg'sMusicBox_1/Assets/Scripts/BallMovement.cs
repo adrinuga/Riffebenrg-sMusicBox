@@ -7,9 +7,15 @@ public class BallMovement : MonoBehaviour {
     public Node m_CurrentNode;
 	public Vector3 m_NextPosition, m_SpawnPosition;
 
+    [SerializeField] private MeshRenderer m_ballRenderer; 
 	[SerializeField] private GridScript m_GameGrid;
 	[SerializeField] private float m_Speed;
     [SerializeField] private GameObject m_trailObject;
+    [SerializeField] private AudioSource m_ballSource;
+    [SerializeField] private AudioClip 
+        m_deathBall,
+        m_moveBall
+        ;
 
 
     private List<GameObject> m_trailObjects = new List<GameObject>();
@@ -39,7 +45,12 @@ public class BallMovement : MonoBehaviour {
                 GetInput();
                 Move();
 
-                if(m_Direction != Vector2.zero) SpawnPath();
+                if (m_Direction != Vector2.zero)
+                {
+                    m_ballSource.clip = m_moveBall;
+                    m_ballSource.Play();
+                    SpawnPath();
+                }
 
                 CheckPreviousNode();
                 SetPreviousNode();
@@ -166,7 +177,8 @@ public class BallMovement : MonoBehaviour {
         {
             if (m_GameGrid.GetNodeContainingPosition(m_NextPosition).hasBeenVisited)
             {
-                ResetPlayer();
+                StartCoroutine(ResetPlayer(m_deathBall.length));
+                
             }
         }
     }
@@ -174,9 +186,15 @@ public class BallMovement : MonoBehaviour {
     {
         m_CanMove = !m_CanMove;
     }
-    private void ResetPlayer()
+    IEnumerator ResetPlayer(float l_waitRespawn)
     {
+        m_ballSource.clip = m_deathBall;
+        m_ballSource.Play();
+        m_ballRenderer.enabled = false;
+        yield return new WaitForSeconds(l_waitRespawn);
+        m_ballRenderer.enabled = true;
         PuzzleManager.m_instance.ResetPlayerPosition();
+
         m_GameGrid.ResetVisitedNodes();
 
     }

@@ -2190,6 +2190,8 @@ MonoBehaviour:
   m_ErrorRange: 0.2
   m_GameGrid: {fileID: 2048782221}
   m_Speed: 2
+  m_trailObject: {fileID: 7780940476422922816, guid: e23a64f4255c05f44913241c9925cae6,
+    type: 3}
 --- !u!1 &220051692
 GameObject:
   m_ObjectHideFlags: 0
