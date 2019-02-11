@@ -56,7 +56,7 @@ public class FinalPuzzleMov : MonoBehaviour
                     m_actualRing.EnableRing();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 if (m_ringList.IndexOf(m_actualRing) < m_ringList.Count - 1)
                 {
