@@ -31,6 +31,7 @@ public class PuzzleManager : MonoBehaviour {
 
     //RythmPuzzle
     [SerializeField] private BallRhythmMovement m_BallRythm;
+    [SerializeField] private BeatManager m_BeatManager;
 
     //SimonSaysPuzzle
     [SerializeField] private Transform[] SimonSaysTransforms;
@@ -106,6 +107,8 @@ public class PuzzleManager : MonoBehaviour {
                     {
                         //Puzzle finished
                         m_Completed = true;
+                        m_BeatManager.m_BeatSource.enabled = false;
+                        m_BeatManager.enabled = false;
                         CompletePuzzle();
                         //ActivateScene();
 

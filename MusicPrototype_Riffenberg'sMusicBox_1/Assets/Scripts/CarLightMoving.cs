@@ -22,7 +22,6 @@ public class CarLightMoving : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //print(m_BackLight.localPosition.x * -1);
 
         float l_SinValue = Mathf.Sin(m_Speed * Time.time);
         transform.position = new Vector3(m_Origin.x + l_SinValue * m_Distance, transform.position.y, transform.position.z);

@@ -22894,6 +22894,7 @@ MonoBehaviour:
   m_Sliders: []
   m_Completed: 0
   m_BallRythm: {fileID: 216551814}
+  m_BeatManager: {fileID: 1301570191}
   SimonSaysTransforms: []
   SimonSaysAudioSources: []
   m_AudioSource: {fileID: 1301570190}

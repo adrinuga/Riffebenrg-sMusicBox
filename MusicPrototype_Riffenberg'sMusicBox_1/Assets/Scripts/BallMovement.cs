@@ -9,7 +9,10 @@ public class BallMovement : MonoBehaviour {
 
 	[SerializeField] private GridScript m_GameGrid;
 	[SerializeField] private float m_Speed;
+    [SerializeField] private GameObject m_trailObject;
 
+
+    private List<GameObject> m_trailObjects = new List<GameObject>();
     private Vector2 m_Direction;
     private Node m_LastVisitedNode;
     private bool m_CanMove = true;
@@ -36,6 +39,8 @@ public class BallMovement : MonoBehaviour {
                 GetInput();
                 Move();
 
+                if(m_Direction != Vector2.zero) SpawnPath();
+
                 CheckPreviousNode();
                 SetPreviousNode();
             }
@@ -48,6 +53,10 @@ public class BallMovement : MonoBehaviour {
             }
         }
     }
+    private void SpawnPath()
+    {
+        m_trailObjects.Add(Instantiate(m_trailObject, transform.position, m_trailObject.transform.rotation));
+    }
 
     public void ResetPosition()
     {
@@ -58,6 +67,12 @@ public class BallMovement : MonoBehaviour {
 
         m_Direction.x = 0;
         m_Direction.y = 0;
+
+        foreach(GameObject trailObj in m_trailObjects)
+        {
+            Destroy(trailObj);
+        }
+        m_trailObjects = new List<GameObject>();
 
         m_CanMove = false;
         CancelInvoke();
@@ -151,14 +166,19 @@ public class BallMovement : MonoBehaviour {
         {
             if (m_GameGrid.GetNodeContainingPosition(m_NextPosition).hasBeenVisited)
             {
-                PuzzleManager.m_instance.ResetPlayerPosition();
-                m_GameGrid.ResetVisitedNodes();
+                ResetPlayer();
             }
         }
     }
     private void ChangeCanMoveState()
     {
         m_CanMove = !m_CanMove;
+    }
+    private void ResetPlayer()
+    {
+        PuzzleManager.m_instance.ResetPlayerPosition();
+        m_GameGrid.ResetVisitedNodes();
+
     }
 
 }

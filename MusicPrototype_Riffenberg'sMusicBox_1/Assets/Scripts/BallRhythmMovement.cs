@@ -11,6 +11,10 @@ public class BallRhythmMovement : BeatActor {
 
 	[SerializeField] private GridScript m_GameGrid;
 	[SerializeField] private float m_Speed;
+    [SerializeField] private GameObject m_trailObject;
+
+
+    private List<GameObject> m_trailObjects = new List<GameObject>();
 
     private Vector2 m_Direction;
     private Vector2 m_InputDirection;
@@ -49,6 +53,7 @@ public class BallRhythmMovement : BeatActor {
             {
                 Debug.Log("Direction is: " + m_Direction);
                 Move();
+                if (m_Direction != Vector2.zero) SpawnPath();
                 l_HasMoved = true;
             }
 
@@ -69,7 +74,10 @@ public class BallRhythmMovement : BeatActor {
             l_HasMoved = false;
         }
     }
-
+    private void SpawnPath()
+    {
+        m_trailObjects.Add(Instantiate(m_trailObject, transform.position, m_trailObject.transform.rotation));
+    }
     private void ResetPosition()
     {
         m_CurrentNode = m_GameGrid.GetNodeContainingPosition(m_SpawnPosition);
@@ -77,8 +85,13 @@ public class BallRhythmMovement : BeatActor {
         m_NextPosition = m_CurrentNode.worldPosition;
         m_LastVisitedNode = null;
 
-        m_Direction.x = 0;
-        m_Direction.y = 0;
+        m_Direction = m_InitialDirection;
+
+        foreach (GameObject trailObj in m_trailObjects)
+        {
+            Destroy(trailObj);
+        }
+        m_trailObjects = new List<GameObject>();
 
         m_CanMove = false;
         CancelInvoke();
@@ -140,7 +153,7 @@ public class BallRhythmMovement : BeatActor {
                 }
                 else
                 {
-                    m_Direction.x = 0;
+                    ResetPosition();
                 }
             }
         }
@@ -156,7 +169,7 @@ public class BallRhythmMovement : BeatActor {
                 }
                 else
                 {
-                    m_Direction.x = 0;
+                    ResetPosition();
                 }
             }
         }
@@ -173,7 +186,7 @@ public class BallRhythmMovement : BeatActor {
                 }
                 else
                 {
-                    m_Direction.y = 0;
+                    ResetPosition();
                 }
             }
         }
@@ -189,7 +202,7 @@ public class BallRhythmMovement : BeatActor {
                 }
                 else
                 {
-                    m_Direction.y = 0;
+                    ResetPosition();
                 }
             }
         }
