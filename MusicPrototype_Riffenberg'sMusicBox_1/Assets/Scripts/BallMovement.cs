@@ -167,26 +167,29 @@ public class BallMovement : MonoBehaviour {
     {
         if (m_NextPosition != m_CurrentNode.worldPosition)
         {
+            print("set previous");
             m_LastVisitedNode = m_CurrentNode;
             m_GameGrid.GetNodeContainingPosition(m_LastVisitedNode.worldPosition).hasBeenVisited = true;
         }
     }
+
     private void CheckPreviousNode()
     {
-        if (m_LastVisitedNode != null)
-        {
-            if (m_GameGrid.GetNodeContainingPosition(m_NextPosition).hasBeenVisited &&m_ballRenderer.enabled)
-            {
-                StartCoroutine(ResetPlayer(m_deathBall.length));
-                
-            }
-        }
+        if (m_LastVisitedNode == null) return;
+        if (!m_GameGrid.GetNodeContainingPosition(m_NextPosition).hasBeenVisited) return;
+        if (!m_ballRenderer.enabled) return;
+
+        print("Previous not null");
+        print("Because last node: " + m_LastVisitedNode);
+        StartCoroutine(ResetPlayer(m_deathBall.length));
+
     }
+
     private void ChangeCanMoveState()
     {
         m_CanMove = !m_CanMove;
     }
-    IEnumerator ResetPlayer(float l_waitRespawn)
+    public IEnumerator ResetPlayer(float l_waitRespawn = 0.5f)
     {
         m_ballSource.clip = m_deathBall;
         m_ballSource.Play();

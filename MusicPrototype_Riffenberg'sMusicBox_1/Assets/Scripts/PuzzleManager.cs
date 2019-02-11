@@ -51,7 +51,7 @@ public class PuzzleManager : MonoBehaviour {
     private AsyncOperation m_async;
 
 
-    void Awake()
+    private void Awake()
     {
         if (m_instance == null)
         {
@@ -163,7 +163,7 @@ public class PuzzleManager : MonoBehaviour {
                                     }
                                     else
                                     {
-                                        ResetPlayerPosition();
+                                        StartCoroutine(m_Ball.ResetPlayer());
                                     }
                                 }
                                 else if (i == 0)

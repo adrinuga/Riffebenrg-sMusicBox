@@ -90,7 +90,7 @@ public class MovingWall : MonoBehaviour
                     }
                 }
             }
-            //Inicializace targetNode
+            //Initialize targetNode
             if (m_Path.Count >= 1)
             {
                 m_TargetNode = m_Grid.GetNodeContainingPosition(m_PositionsInNodes[m_Path[m_CurrentPositionIndex]].worldPosition);

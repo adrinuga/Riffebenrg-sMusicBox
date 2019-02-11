@@ -125,10 +125,10 @@ public class ChangeToPuzzle : InteractableObject {
         m_FadeAnimator.SetBool("Fade", true);
         yield return new WaitUntil(() => m_FadeImage.color.a == 1);
     }
-    public void ActivateScene()
+    private void ActivateScene()
     {
         GameManager.m_instance.SaveInfo(transform.root.position,transform.root.rotation,m_sceneToChange);
-        Debug.Log("goChange");
+        print("goChange");
         m_async.allowSceneActivation = true;
     }
 }
