@@ -175,7 +175,7 @@ public class BallMovement : MonoBehaviour {
     {
         if (m_LastVisitedNode != null)
         {
-            if (m_GameGrid.GetNodeContainingPosition(m_NextPosition).hasBeenVisited)
+            if (m_GameGrid.GetNodeContainingPosition(m_NextPosition).hasBeenVisited &&m_ballRenderer.enabled)
             {
                 StartCoroutine(ResetPlayer(m_deathBall.length));
                 
