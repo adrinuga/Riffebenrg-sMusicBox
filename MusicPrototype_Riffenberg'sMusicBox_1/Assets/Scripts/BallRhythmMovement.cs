@@ -131,7 +131,6 @@ public class BallRhythmMovement : BeatActor {
 
                     transform.position = m_CurrentNode.worldPosition;
 
-                    //Move();
                 }
             }
         }

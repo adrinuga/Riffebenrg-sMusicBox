@@ -58,7 +58,7 @@ public class PuzzleCompleted : InteractableObject {
             }
 
         }
-        //TO CHANGE
+        
         if (!m_PuzzleSolvedAudioSource.isPlaying)
         {
             m_PuzzleSolvedAudioSource.Play();

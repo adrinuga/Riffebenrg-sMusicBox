@@ -97,11 +97,6 @@ public class MovingWall : MonoBehaviour
             }
         }
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    if (m_TargetNode != null)
-    //        Gizmos.DrawCube(m_TargetNode.worldPosition, Vector3.one);
-    //}
-
 }
+
+  

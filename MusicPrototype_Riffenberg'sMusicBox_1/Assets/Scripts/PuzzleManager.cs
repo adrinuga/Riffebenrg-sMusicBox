@@ -86,8 +86,7 @@ public class PuzzleManager : MonoBehaviour {
                 {
                     m_CurrentSimonSaysVisited[i] = false;
                 }
-                //m_AudioSource.Play();
-                //m_IntroAnimation.Play();
+                
                 StartCoroutine(PlayAfterFade());
                 break;
         }
@@ -110,7 +109,7 @@ public class PuzzleManager : MonoBehaviour {
                         m_BeatManager.m_BeatSource.enabled = false;
                         m_BeatManager.enabled = false;
                         CompletePuzzle();
-                        //ActivateScene();
+                      
 
                     }
                     break;
@@ -131,7 +130,7 @@ public class PuzzleManager : MonoBehaviour {
                         //Puzzle finished
                         m_Completed = true;
                         CompletePuzzle();
-                        //ActivateScene();
+                       
                     }
                     break;
 
@@ -153,7 +152,7 @@ public class PuzzleManager : MonoBehaviour {
                                             if (m_AudioSource.isPlaying)
                                             {
                                                 m_AudioSource.Stop();
-                                                //m_IntroAnimation.Stop();
+                                              
                                             }
 
                                         }
@@ -174,7 +173,7 @@ public class PuzzleManager : MonoBehaviour {
                                         if (m_AudioSource.isPlaying)
                                         {
                                             m_AudioSource.Stop();
-                                            //m_IntroAnimation.Stop();
+                                          
                                         }
                                     }
 
@@ -198,7 +197,7 @@ public class PuzzleManager : MonoBehaviour {
                         //Puzzle finished
                         m_Completed = true;
                         CompletePuzzle();
-                        //ActivateScene();
+                    
                     }
                     break;
             }
@@ -263,27 +262,7 @@ public class PuzzleManager : MonoBehaviour {
         {
             yield return null;
         }
-       /* if(m_Completed)
-        {
-            /*GameManager.m_instance.AddCompletedPuzzle(m_PuzzleType);
-            if(m_FinalAudio != null && !m_PlayingFinalAudio)
-            {
-                //m_AudioMixer.
-                Debug.Log("Final not null");
-                m_AudioSource.clip = m_FinalAudio;
-                m_AudioSource.Play();
-                m_PlayingFinalAudio = true;
-            }
-        }
-        if (m_FinalAudio != null)
-        {
-            while (m_AudioSource.isPlaying)
-            {
-                //Debug.Log("Playing");
-                yield return null;
-            }
-        }*/
-        //m_PlayingFinalAudio = false;
+       
         GameManager.m_instance.ResetLists();
         Debug.Log("Changed to scene: " + m_sceneToChange);
         m_async.allowSceneActivation = true;

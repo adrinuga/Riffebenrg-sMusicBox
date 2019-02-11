@@ -10,7 +10,7 @@ public class BeatActor : MonoBehaviour
     public BeatManager.BeatType beatType;
     public List<int> beatList;
     public AudioClip actSound;
-    //public float offset;
+   
     public int waitBarInterval = 1;
     public bool startImmediately;
 
@@ -25,7 +25,7 @@ public class BeatActor : MonoBehaviour
     private bool actOnBar;
     private bool waitForBars;
 
-    //protected bool actOnDownBeat;
+   
 
 
     protected void SetBehavior()
@@ -88,7 +88,7 @@ public class BeatActor : MonoBehaviour
     {
         savedPosition = gameObject.transform.position;
 
-       // Debug.Log(transform.name + "  " + savedPosition);
+      
 
     }
 

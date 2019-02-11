@@ -68,9 +68,7 @@ public class PlayerLookingNav : MonoBehaviour
     {
         if (!m_isMoving)
         {
-            //Debug.Log("inplayernav");
-            //Vector3 l_mouseOnWorld = m_SceneCamera.ViewportToWorldPoint(Input.mousePosition);
-
+          
             InteractableObject l_actualInteractable = null;
 
             Ray l_mouseRay = m_SceneCamera.ScreenPointToRay(Input.mousePosition);
@@ -78,10 +76,9 @@ public class PlayerLookingNav : MonoBehaviour
             RaycastHit l_RaycastHit;
             if (Physics.Raycast(l_mouseRay, out l_RaycastHit, 200.0f, m_mouseMask.value))
             {
-                //Debug.Log("Looking fr object");
+               
                 if(l_RaycastHit.transform.tag == "Interactable")
                 {
-                   // Debug.Log("InteractableFound");
                     l_actualInteractable = GameManager.m_instance.GetInteractableObject(l_RaycastHit.transform);
                     l_actualInteractable.MouseOver();
                 }
@@ -92,7 +89,6 @@ public class PlayerLookingNav : MonoBehaviour
             {
                 m_PlayerTouchSource.clip = m_TouchNormalClip;
                 m_PlayerTouchSource.Play();
-                //Debug.Log("InteractableClicked");
                 if(l_actualInteractable != null)
                 {
                     l_actualInteractable.OnClick();

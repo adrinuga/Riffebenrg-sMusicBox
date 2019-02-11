@@ -154,7 +154,7 @@ public class FinalPuzzleMov : MonoBehaviour
             }
             yield return null;
         }
-        //if each animation is done
+     
 
        
 

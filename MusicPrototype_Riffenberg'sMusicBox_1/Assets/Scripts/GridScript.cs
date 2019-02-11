@@ -195,6 +195,6 @@ public class Node
 		worldPosition = _nPos;
 		isTransitable = _transitable;
         isSimonSays = _SimonSays;
-		//Debug.Log(gridPositionX + "," + gridPositionY);
+		
 	}
 }

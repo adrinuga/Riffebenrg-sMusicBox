@@ -76,7 +76,7 @@ public class ChangeToPuzzle : InteractableObject {
     {
         if (GameManager.m_instance.m_playerNav.m_BoxOn && !m_completed)
         {
-          //  Debug.Log("changeScene");
+    
 
 
             StartCoroutine(Load());
@@ -89,7 +89,7 @@ public class ChangeToPuzzle : InteractableObject {
         {
 
             m_objectOutline.enabled = true;
-           // Debug.Log("outline");
+           
 
         }
     }
@@ -99,22 +99,16 @@ public class ChangeToPuzzle : InteractableObject {
     }
     IEnumerator Load()
     {
-        ////Debug.LogWarning("ASYNC LOAD STARTED - " +
-        //   "DO NOT EXIT PLAY MODE UNTIL SCENE LOADS... UNITY WILL CRASH");
+       
+        
         m_async = SceneManager.LoadSceneAsync(m_sceneToChange);
         m_async.allowSceneActivation = false;
-        //m_puzzleAnim.clip = m_changeSceneAnim;
-        ////m_puzzleAnim.Play();
-        ////while (m_puzzleAnim.isPlaying)
-        ////{
-        ///
-
 
 
         // TO DO CHECK IF THE SCENE IS LOADED
         yield return null;
 
-        //}
+       
         ActivateScene();
 
         

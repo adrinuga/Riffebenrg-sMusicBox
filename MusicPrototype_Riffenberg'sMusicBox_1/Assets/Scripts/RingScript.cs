@@ -26,11 +26,9 @@ public class RingScript : MonoBehaviour
     public void EnableRing() 
     {
         m_ringOutline.enabled = true;
-        //Debug.Log("enable");
     }
     public void DisableRing()
     {
-        //Debug.Log("disable");
         m_ringOutline.enabled = false;
     }
     public void RotateRing(int _sign)
