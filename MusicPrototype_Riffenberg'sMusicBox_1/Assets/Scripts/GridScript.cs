@@ -16,6 +16,10 @@ public class GridScript : MonoBehaviour {
 
 	public void GenerateGrid()
 	{
+        //Node[,] _oldGrid = null;
+
+        //if (m_Grid != null) _oldGrid = m_Grid;
+
 		m_Grid = new Node[m_Size_x, m_Size_y];
 
 		for (int i = 0; i < m_Size_x; i++)
@@ -47,6 +51,32 @@ public class GridScript : MonoBehaviour {
 
 		}
 	}
+    public void RewriteGrid()
+    {
+        foreach(Node n in m_Grid)
+        {
+            Collider[] colliders = Physics.OverlapSphere(n.worldPosition, m_Node_size * 0.5f);
+
+            for (int k = 0; k < colliders.Length; k++)
+            {
+
+                n.isTransitable = true;
+                n.isSimonSays = true;
+              
+
+                if (colliders[k].tag == "Wall_Puzzle")
+                {
+                    n.isTransitable = false;
+                }
+                else if (colliders[k].tag == "Node_SimonSays")
+                {
+                    n.isSimonSays = true;
+                }
+            }
+
+        }
+
+    }
 	private void OnDrawGizmosSelected()
 	{
 		if (m_Grid != null)

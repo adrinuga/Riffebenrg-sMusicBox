@@ -45,7 +45,7 @@ public class MovingWall : MonoBehaviour
             //if has arrived to the destination sets a new target and updates the grid
             if (transform.position == m_TargetNode.worldPosition)
             {
-                m_Grid.GenerateGrid();
+                m_Grid.RewriteGrid();
                 m_CurrentPositionIndex++;
                 if (m_CurrentPositionIndex < m_Path.Count)
                 {
